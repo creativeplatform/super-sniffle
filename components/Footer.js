@@ -9,10 +9,11 @@ const Footer = () => {
   return (
     <div className="flex justify-center mt-6">
         <div className="footer-container max-w-screen-lg w-full leading-relaxed">
-            <p>Join the Urban Uprise Crew and help us make NFT history together!</p>
             <p>We’re a collection of 10K unique hand-drawn PFP NFTs created to reward and support international artists, musicians and their fans.</p><br />
-            <p>UUC Hodlers get access to our innovative desktop/mobile app, which allows creative individuals from around the globe to participate in exclusive brand campaigns. These campaigns are generated with one primary goal: to allow any creative an opportunity for success. Fans and campaign supporters earn voting power and get rewarded based on their level of engagement and social interactions.</p><br /> <p>If you enjoy what your favorite artist creates, then support them, because when creatives start earning, their fans start earning.</p><br />
-            <p>Learn more at <a href="https://creativeplatform.xyz" target="_blank" rel="noreferrer"><strong>Creative Platform</strong></a></p>
+            <p>UUC Hodlers get access to our innovative desktop/mobile app, which allows creative individuals from around the globe to participate in exclusive brand campaigns. These campaigns are generated with one primary goal: to allow any creative an opportunity for success. Fans and campaign supporters earn voting power and get rewarded based on their level of engagement and social interactions.</p><br /> 
+            <p>If you enjoy what your favorite artist creates, then support them, because when creatives start earning, their fans start earning.</p>
+            <p>Join the Urban Uprise Crew and help us make NFT history together!</p><br />
+            <p>Learn more at <a href="https://creativeplatform.xyz" className="hover:underline" target="_blank" rel="noreferrer"><strong>Creative Platform</strong></a></p>
             <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
