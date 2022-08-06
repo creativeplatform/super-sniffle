@@ -1,10 +1,15 @@
 import Image from 'next/image'
 import logo from "../assets/WhiteUUC.png"
 
+const myLoader = ({ src, width }) => {
+  return `${src}?w=${width}}`
+}
+
 const Header = () => {
   return (
     <div className="flex flex-wrap p-0 m-auto w-2/12 items-center justify-center">
       <Image
+        loader={myLoader}
         width={100}
         height={100}
         src={logo}
