@@ -1,6 +1,10 @@
 import Image from "next/image";
 import logo from "../assets/WhiteUUC.png"
 
+const myLoader = ({ src, width }) => {
+    return `${src}?w=${width}}`
+  }
+
 const Footer = () => {
   return (
     <div className="flex justify-center mt-6">
@@ -13,8 +17,8 @@ const Footer = () => {
         <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
             <a href="https://urbanuprisecrew.com/" className="flex items-center">
-                <Image src={logo} width={100}
-                height={100} class="mr-3 h-8" alt="UUC Logo" />
+                <Image loader={myLoader} src={logo} width={100}
+                height={100} className="mr-3 h-8" alt="UUC Logo" />
                 <span className="px-3 uppercase self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Urban Uprise Crew</span>
             </a>
         </div>
