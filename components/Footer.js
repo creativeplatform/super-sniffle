@@ -9,11 +9,13 @@ const Footer = () => {
   return (
     <div className="flex justify-center mt-6">
         <div className="footer-container max-w-screen-lg w-full leading-relaxed">
-            <p>We’re a collection of 10K unique hand-drawn PFP NFTs created to reward and support international artists, musicians and their fans.</p><br />
-            <p>UUC Hodlers get access to our innovative desktop/mobile app, which allows creative individuals from around the globe to participate in exclusive brand campaigns. These campaigns are generated with one primary goal: to allow any creative an opportunity for success. Fans and campaign supporters earn voting power and get rewarded based on their level of engagement and social interactions.</p><br /> 
-            <p>If you enjoy what your favorite artist creates, then support them, because when creatives start earning, their fans start earning.</p>
-            <p>Join the Urban Uprise Crew and help us make NFT history together!</p><br />
-            <p>Learn more at <a href="https://creativeplatform.xyz" className="hover:underline" target="_blank" rel="noreferrer"><strong>Creative Platform</strong></a></p>
+            <p className="indent-8">In an alternate metaverse, a once beautiful city has been taken over by greed and corporations. Taking the creative souls of musicians, artists, and their fans; it is known as the Shadow City for the darkness it unleashed.
+            They were compelled to work tirelessly in the dark after being taken as captives, and losing their creative abilities while still being forced to generate streams of income for the Shadow Dwellers.</p><br />
+                <p className="uppercase underline decoration-3 font-semibold">But enough is enough!</p><br /><p>It's time to fight back and allow those captured to regain control over their creative talents, build financial freedom, and get out of the shadows once and for all.
+            This is the story of the Urban Uprise Crew, an army of 10,000 musicians, artists, and their fans who had their creative souls stolen by the tricky money-hungry Shadow Dwellers.</p><br /><p>We call on you to mint a Crew Member which will free a soul from captivity. The more we free, the bigger our creative power becomes, revealing a fury of talent that will destroy the Shadow Dwellers' rule, forever!</p><br />
+            <p>By joining the UUC revolution as a Musician, Artist, or invested Fan, you’ll have the ability to boost fellow creatives, vote for talent, and help produce a monthly Uprise Album that will ignite unity amongst the crew and help build camaraderie.</p><br /> 
+            <p>The crew will be highly promoted and featured throughout the metaverse and in real life. Crewmates will be able to grow in their career and ultimately bring success and fortune to not just themselves, but the entire community as a whole!</p>
+            
             <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
@@ -25,29 +27,29 @@ const Footer = () => {
         </div>
         <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+                <h2 className="mb-6 text-sm font-semibold text-gray-300 uppercase dark:text-white">Resources</h2>
                 <ul className="text-gray-600 dark:text-gray-400">
                     <li className="mb-4">
-                        <a href="https://creativeplatform.xyz/" className="hover:underline">Creative</a>
+                        <a href="https://creativeplatform.xyz/" className="hover:underline after:content-['_↗'] ...">Creative</a>
                     </li>
                     <li>
-                        <a href="https://stageverse.com/" className="hover:underline">Stageverse</a>
+                        <a href="https://stageverse.com/" className="hover:underline after:content-['_↗'] ...">Stageverse</a>
                     </li>
                 </ul>
             </div>
             <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+                <h2 className="mb-6 text-sm font-semibold text-gray-300 uppercase dark:text-white">Follow us</h2>
                 <ul className="text-gray-600 dark:text-gray-400">
                     <li className="mb-4">
-                        <a href="https://github.com/creativeplatform/uuc-collection" className="hover:underline ">Github</a>
+                        <a href="https://github.com/creativeplatform/uuc-collection" className="hover:underline after:content-['_↗'] ...">Github</a>
                     </li>
                     <li>
-                        <a href="https://discord.gg/T7zPK57cMX" className="hover:underline">Discord</a>
+                        <a href="https://discord.gg/T7zPK57cMX" className="hover:underline after:content-['_↗'] ...">Discord</a>
                     </li>
                 </ul>
             </div>
             <div>
-                <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                <h2 className="mb-6 text-sm font-semibold text-gray-300 uppercase dark:text-white">Legal</h2>
                 <ul className="text-gray-600 dark:text-gray-400">
                     <li className="mb-4">
                         <a href="#" className="hover:underline">Privacy Policy</a>
