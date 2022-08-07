@@ -1,5 +1,6 @@
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui"
-import { useMetamask, useAddress, useDisconnect, useNFTDrop, useWalletConnect, useCoinbaseWallet, useNetworkMismatch } from "@thirdweb-dev/react"
+import { useMetamask, useAddress, useDisconnect, useNFTDrop, useWalletConnect, useCoinbaseWallet, useClaimNFT } from "@thirdweb-dev/react"
+
 
 const Minting = () => {
 
@@ -11,21 +12,17 @@ const Minting = () => {
 
     const nftDrop = useNFTDrop("0x69E6E2b637B694D6d465E3256e25a03948f9E901");
 
-    const tokenId = 0;
-    const quantity = 1;
+    const amount = 1;
 
-    const mint = async () => {
-        try {
-            await nftDrop?.claimTo(address, tokenId, quantity);
-            console.log("🎉 NFT claimed successfully!");
-          } catch (err) {
-            console.log("💩 Error claiming NFT: ", err);
-          }
-    }
+    const { mutate: claimNft, isLoading, error } = useClaimNFT(nftDrop);
+    
 
-    function classNames(...classes) {
-        return classes.filter(Boolean).join(' ')
-      }
+  if (error) {
+    console.error("💩 Error claiming NFT: ", error);
+  }
+  else {
+    console.log("🎉 NFT claimed successfully!")
+  }
 
   return (
     <div className="max-w-screen-lg w-full">
@@ -38,7 +35,7 @@ const Minting = () => {
                     address
                         ? 
                         <>
-                            <button className="flex-1 items-center bg-indigo-500 hover:bg-white hover:text-indigo-500 text-white text-md font-bold rounded-md uppercase" onClick={mint}>Mint</button>
+                            <button className="flex-1 items-center bg-indigo-500 hover:bg-white hover:text-indigo-500 text-white text-md font-bold rounded-md uppercase" disabled={isLoading} onClick={() => claimNft({ to: address, quantity: amount })}>Mint</button>
                             <button className="unfilled-button flex-1 items-center bg-black border-2 text-red-600 hover:text-white hover:border-red-700 text-md font-bold rounded-md uppercase" onClick={disconnectWallet}>Disconnect</button>
                         </>
                         :<div className="dropdown dropdown-left">
