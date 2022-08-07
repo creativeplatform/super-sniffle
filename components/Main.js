@@ -11,7 +11,7 @@ const Main = () => {
         <div className="container max-w-screen-lg">
             <Image
               loader={myLoader} 
-              src="/UUC_BG.gif"
+              src="/UUC_final_bg.gif"
               alt="UUC_city-of-shadows"
               width={1920}
               height={1200}
