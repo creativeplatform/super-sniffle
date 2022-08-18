@@ -1,9 +1,9 @@
-import Image from 'next/image'
-import logo from "../assets/WhiteUUC.png"
+import Image from "next/image";
+import logo from "../assets/WhiteUUC.png";
 
 const myLoader = ({ src, width }) => {
-  return `${src}?w=${width}}`
-}
+  return `${src}?w=${width}}`;
+};
 
 const Header = () => {
   return (
@@ -15,10 +15,11 @@ const Header = () => {
         src={logo}
         alt="UUC Logo"
       />
-      <div className="text-center uppercase text-3xl font-bold">Urban Uprise Crew</div>
-  </div>
-   
-  )
-}
+      <div className="text-center uppercase text-3xl font-bold">
+        Urban Uprise Crew
+      </div>
+    </div>
+  );
+};
 
-export default Header
+export default Header;
