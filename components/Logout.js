@@ -1,11 +1,8 @@
 import React from "react";
-import Partnerships from "./Partnerships";
-import { useState } from "react";
 import { useAddress, useDisconnect } from "@thirdweb-dev/react";
 
 function Hero() {
   const address = useAddress();
-
   const disconnectWallet = useDisconnect();
   const styles = {
     UCCPrimeCTABtn: `bg-[#05cc47] hover:bg-sky-300 w-fit`,
@@ -15,12 +12,12 @@ function Hero() {
     <>
       {address ? (
         <>
-          <div class="flow-root max-w-[168px] p-3 m-3 rounded-xl border-2  border-slate-800 ">
+          <div className="flow-root max-w-[168px] p-3 m-3 rounded-xl border-2  border-slate-800 ">
             <a
               onClick={disconnectWallet}
-              class="-m-3 p-3 flex items-center rounded-md text-base font-medium  hover:bg-gray-100 text-white"
+              className="-m-3 p-3 flex items-center rounded-md text-base font-medium  hover:bg-gray-100 text-white"
             >
-              <span class="mx-3">Disconnect</span>
+              <span className="mx-3">Disconnect</span>
               <svg
                 width="30px"
                 height="20px"
