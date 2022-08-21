@@ -18,7 +18,7 @@ const Minting = () => {
   const connectWithCoinbaseWallet = useCoinbaseWallet();
   const address = useAddress();
 
-  const nftDrop = useNFTDrop("0x69E6E2b637B694D6d465E3256e25a03948f9E901");
+  const nftDrop = useNFTDrop("0x42BECaFf3737CbB691894059717503bc1F03e316");
 
   const amount = 1;
 
