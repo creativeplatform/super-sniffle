@@ -52,37 +52,40 @@ const Minting = () => {
               </button>
             </>
           ) : (
-            <div className="dropdown dropdown-left">
-              <label
-                tabIndex="0"
-                className={`${styles.UCCBtnDefaults} ${styles.UCCPrimeCTABtn}`}
-              >
-                Connect Wallet
-              </label>
-              <ul
-                tabIndex="0"
-                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <button
-                  className="text-indigo-500 hover:border-2 py-4 hover:border-white"
-                  onClick={connectWithMetamask}
-                >
-                  Metamask
-                </button>
-                <button
-                  className="text-indigo-500 hover:border-2 py-4 hover:border-white"
-                  onClick={connectWithWalletConnect}
-                >
-                  Wallet Connect
-                </button>
-                <button
-                  className="text-indigo-500 hover:border-2 py-4 hover:border-white"
-                  onClick={connectWithCoinbaseWallet}
-                >
-                  Coinbase Wallet
-                </button>
-              </ul>
-            </div>
+            <>
+                <label for="my-modal" className={"btn modal-button"}>Connect Wallet</label>
+                <input type="checkbox" id="my-modal" className="modal-toggle" />
+                <div className="modal modal-bottom sm:modal-middle">
+                  <div className="modal-box">
+                    <ul
+                      tabIndex="0"
+                      className="menu p-2 shadow bg-base-100 rounded-box"
+                    >
+                      <label
+                        className="text-indigo-500 hover:border-2 py-4 my-1 hover:border-white btn"
+                        onClick={connectWithMetamask}
+                      >
+                        Metamask
+                      </label>
+                      <label
+                        className="text-indigo-500 hover:border-2 py-4 my-1 hover:border-white btn"
+                        onClick={connectWithWalletConnect}
+                      >
+                        Wallet Connect
+                      </label>
+                      <label
+                        className="text-indigo-500 hover:border-2 py-4 my-1 hover:border-white btn"
+                        onClick={connectWithCoinbaseWallet}
+                      >
+                        Coinbase Wallet
+                      </label>
+                    </ul>
+                    <div className="modal-action">
+                      <label for="my-modal" className="btn">Close</label>
+                    </div>
+                  </div>
+                </div>
+            </>
           )}
           <CrossmintPayButton
             className={styles.UCCBtnDefaults}
