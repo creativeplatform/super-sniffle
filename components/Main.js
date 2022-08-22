@@ -16,13 +16,12 @@ const Main = () => {
       </div>
 
       <div className="flex flex-col items-center ">
-        <div className="container max-w-screen-lg relative">
+        <div className="lg:h-[75vh] container lg:w-screen h-[500px] w-full relative">
           <Image
             loader={myLoader}
             src="/UUC_final_bg.gif"
             alt="UUC_city-of-shadows"
-            width={1920}
-            height={1200}
+            layout="fill"
             className="absolute w-full h-full"
           />
           <Minting />

@@ -2,7 +2,7 @@ import React from "react";
 
 function Partnerships() {
   const styles = {
-    partnershipsLogos: `h-5 mx-auto lg:h-9 grayscale hover:grayscale-0 transition-all ease-in duration-300`,
+    partnershipsLogos: `h-5 mx-auto md:h-7 sm:h-7 lg:h-9 grayscale hover:grayscale-0 transition-all ease-in duration-300`,
   };
   return (
     <>
