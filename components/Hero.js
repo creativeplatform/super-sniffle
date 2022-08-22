@@ -46,7 +46,7 @@ function Hero() {
             An army of 10,000 musicians, artists, and their fans who had their
             creative souls stolen by the tricky money-hungry Shadow Dwellers.
           </p>
-          <h3 class="mt-20 text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r capitalize from-red-300 to-sky-500 leading-snug mb-2">
+          <h3 className="mt-20 text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r capitalize from-red-300 to-sky-500 leading-snug mb-2">
             Why Join UUC
           </h3>
           <p>
