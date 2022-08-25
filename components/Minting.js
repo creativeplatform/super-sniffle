@@ -10,7 +10,8 @@ import {
 
 const Minting = () => {
   const styles = {
-    UCCPrimeCTABtn: `bg-[#05cc47] hover:bg-sky-300 flex-none`,
+    BtnWIconsDefault: `relative tracking-wider text-indigo-500 hover:border-2 max-w-[270px] py-4 my-2 hover:border-white btn text-left`,
+    UCCPrimeCTABtn: `bg-[#05cc47] hover:bg-slate-700 hover:text-[#05cc47] flex-none`,
     UCCBtnDefaults: `lg:max-w-[350px] max-w-[100%] font-bold px-20 w-full text-sm  h-[50px] border-none capitalize text-center flex-1 inline-flex  items items-center text-white rounded-md `,
   };
   const connectWithMetamask = useMetamask();
@@ -40,7 +41,7 @@ const Minting = () => {
             Urban Uprise Crew
           </p>
         </div>
-        <div className="button-container flex mt-2 gap-4 ">
+        <div className="button-container grid grid-cols-1 gap-3 sm:grid-cols-2  lg:grid-cols-4 mt-7 md:mt-24">
           {address ? (
             <>
               <button
@@ -53,38 +54,65 @@ const Minting = () => {
             </>
           ) : (
             <>
-                <label for="my-modal" className={"btn modal-button"}>Connect Wallet</label>
-                <input type="checkbox" id="my-modal" className="modal-toggle" />
-                <div className="modal modal-bottom sm:modal-middle">
-                  <div className="modal-box">
-                    <ul
-                      tabIndex="0"
-                      className="menu p-2 shadow bg-base-100 rounded-box"
+              <label
+                for="my-modal"
+                className={`btn modal-button ${styles.UCCBtnDefaults} ${styles.UCCPrimeCTABtn}`}
+              >
+                Connect Wallet
+              </label>
+              <input type="checkbox" id="my-modal" className="modal-toggle" />
+              <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box p-0">
+                  <div className="modal-header font-medium border-b-4 border-slate-700/30   capitalize px-7 py-5">
+                    <h3 className="uppercase italic font-black text-sky-200/70 ">
+                      Choose your wallet
+                    </h3>
+                  </div>
+                  <ul
+                    tabIndex="0"
+                    className="menu text-left w-fit py-3 my-7  m-auto"
+                  >
+                    <label
+                      className={styles.BtnWIconsDefault}
+                      onClick={connectWithMetamask}
                     >
-                      <label
-                        className="text-indigo-500 hover:border-2 py-4 my-1 hover:border-white btn"
-                        onClick={connectWithMetamask}
-                      >
-                        Metamask
-                      </label>
-                      <label
-                        className="text-indigo-500 hover:border-2 py-4 my-1 hover:border-white btn"
-                        onClick={connectWithWalletConnect}
-                      >
-                        Wallet Connect
-                      </label>
-                      <label
-                        className="text-indigo-500 hover:border-2 py-4 my-1 hover:border-white btn"
-                        onClick={connectWithCoinbaseWallet}
-                      >
-                        Coinbase Wallet
-                      </label>
-                    </ul>
-                    <div className="modal-action">
-                      <label for="my-modal" className="btn">Close</label>
-                    </div>
+                      <img
+                        className="absolute left-5 h-[23px] mr-3"
+                        src="/assets/Wallets/metamask.svg"
+                      />
+                      <span className="ml-0">MetaMask</span>
+                    </label>
+                    <label
+                      className={styles.BtnWIconsDefault}
+                      onClick={connectWithWalletConnect}
+                    >
+                      <img
+                        className="absolute left-3 h-[30px] mr-3"
+                        src="/assets/Wallets/walletconnect.svg"
+                      />
+                      <span className="ml-11"> Wallet Connect</span>
+                    </label>
+                    <label
+                      className={styles.BtnWIconsDefault}
+                      onClick={connectWithCoinbaseWallet}
+                    >
+                      <img
+                        className="absolute left-3 h-[30px] mr-3"
+                        src="/assets/Wallets/coinbase-wallet.svg"
+                      />
+                      <span className="ml-11"> Coinbase Wallet</span>
+                    </label>
+                  </ul>
+                  <div className="modal-action border-t-4 border-slate-700/30 py-5 px-7">
+                    <label
+                      for="my-modal"
+                      className="btn min-w-[120px] tracking-wider"
+                    >
+                      Close
+                    </label>
                   </div>
                 </div>
+              </div>
             </>
           )}
           <CrossmintPayButton
@@ -95,8 +123,8 @@ const Minting = () => {
             clientId="a1a33379-1866-43ec-8313-8bf81c5e79d7"
             mintConfig={{
               type: "thirdweb-drop",
-              totalPrice: "0.1",
-              quantity: "2",
+              totalPrice: "<SELECTED_PRICE_IN_MATIC>",
+              quantity: "<NUMBER_OF_NFTS>",
             }}
           />
         </div>
