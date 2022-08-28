@@ -1,11 +1,23 @@
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
+import toast, {Toaster} from 'react-hot-toast';
+import {party} from "party-js";
+import {ConfettiGenerator}   from "confetti-js";
+import { BigNumber } from "ethers";
 import {
+  ChainId,
   useMetamask,
+  useContractMetadata,
   useAddress,
   useNFTDrop,
+  useNFT,
   useWalletConnect,
   useCoinbaseWallet,
   useClaimNFT,
+  useEditionDrop, 
+  connectWithMetamask,
+  useNetworkMismatch,
+  useNetwork,
+  useActiveClaimCondition,
 } from "@thirdweb-dev/react";
 
 const Minting = () => {
@@ -17,13 +29,66 @@ const Minting = () => {
   const connectWithMetamask = useMetamask();
   const connectWithWalletConnect = useWalletConnect();
   const connectWithCoinbaseWallet = useCoinbaseWallet();
+  const isOnWrongNetwork = useNetworkMismatch();
+  const [, switchNetwork] = useNetwork();
+
+
   const address = useAddress();
 
   const nftDrop = useNFTDrop("0x42BECaFf3737CbB691894059717503bc1F03e316");
+  const editionDrop = useEditionDrop("0x7CCA079B8B8E9857fe0cB1CDA433Fda2F703f9CE")
 
   const amount = 1;
 
-  const { mutate: claimNft, isLoading, error } = useClaimNFT(nftDrop);
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(editionDrop);
+
+  // Load the active claim condition
+  const { data: activeClaimCondition } = useActiveClaimCondition(
+    editionDrop,
+    BigNumber.from(0)
+  );
+
+
+
+async function mint() {
+
+      // Make sure the user has their wallet connected.
+    if (!address) {
+      connectWithMetamask();
+      return;
+    }
+
+    // Make sure the user is on the correct network (same network as your NFT Drop is).
+    if (isOnWrongNetwork) {
+      switchNetwork && switchNetwork(ChainId.Mumbai);
+      toast.error("Switch Network to Mumbai")
+      return;
+    }
+
+    const tid=toast.loading("Confirm on MetaMask !")
+
+    try {
+      claimNft(
+        {  
+          quantity:amount,
+          to: address,
+          tokenId: 0,
+         
+        },
+        {
+          onSuccess: (data) => {
+            toast.success("Successfully minted NFT", {id:tid,});
+          },
+          onError: (error) => {
+            toast.error("Something went wrong", {id:tid,} );
+          },
+        }
+      );
+    } catch (error) {
+      toast.error("Something went wrong", {id:tid,});
+    }
+  };
+
 
   if (error) {
     console.error("💩 Error claiming NFT: ", error);
@@ -33,23 +98,43 @@ const Minting = () => {
 
   return (
     <div className=" w-full ">
+    <Toaster id="my-canvas" position="bottom-center" reverseOrder={true}/>
       <div className="absolute bottom-2 left-0 right-0 m-auto z-50 w-full bg-[#AE13E3] bg-opacity-20 flex flex-col p-20 pb-7">
-        <div className="title-container flex mb-7">
-          <p className="text-5xl uppercase italic font-black   text-sky-200 ">
+        <div className="title-container flex mb-7 justify-center" >
+          <p className="text-5xl text-center uppercase italic font-black text-sky-200 glitch " data-text="Urban Uprise Crew">
             Welcome to the
             <br />
-            Urban Uprise Crew
-          </p>
+            <span>Urban Uprise Crew
+          </span></p>
         </div>
-        <div className="button-container grid grid-cols-1 gap-3 sm:grid-cols-2  lg:grid-cols-4 mt-7 md:mt-24">
+             {/* Amount claimed so far */}
+
+
+        <div className="button-container grid grid-cols-2 gap-3 sm:grid-cols-2 lg:grid-cols-4 mt-7 md:mt-24 justify-center">
+                  <div className=" col-start-1 col-span-4 inline-flex gap-8 justify-center ">
+              <p>Total Minted</p>
+              {activeClaimCondition ? (
+                <p>
+                  {/* Claimed supply so far */}
+                  <b>{activeClaimCondition.currentMintSupply}</b>
+                  {" / "}
+                  {activeClaimCondition.maxQuantity}
+                </p>
+              ) : (
+                // Show loading state if we're still loading the supply
+                <p>Loading...</p>
+              )}
+          </div>
+
           {address ? (
             <>
               <button
-                className="flex-1 items-center bg-indigo-500 hover:bg-white hover:text-indigo-500 text-white text-md font-bold rounded-md uppercase"
-                disabled={isLoading}
-                onClick={() => claimNft({ to: address, quantity: amount })}
+                className="flex-1  bg-indigo-500 hover:bg-white hover:text-indigo-500 text-white text-md font-bold rounded-md uppercase disabled:bg-gray-400"
+                disabled={ isLoading }
+                onClick={() => mint()}
               >
-                Mint
+              {isLoading ?(<>Minting...</>):(<span>Mint</span>)}
+              
               </button>
             </>
           ) : (
