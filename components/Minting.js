@@ -21,10 +21,11 @@ const Minting = () => {
 
   const nftDrop = useNFTDrop("0x42BECaFf3737CbB691894059717503bc1F03e316");
 
+  // Mint Constants
   const amount = 1;
 
   const totalQuantity = "100";
-  const totalPrice = "17730";
+  const totalPrice = "1.00";
 
   const { mutate: claimNft, isLoading, error } = useClaimNFT(nftDrop);
 
@@ -120,15 +121,16 @@ const Minting = () => {
           )}
           <CrossmintPayButton
             className={styles.UCCBtnDefaults}
-            collectionTitle="Urban Uprise Crew"
-            collectionDescription="The UUC was formed to showcase the amazing creative talents throughout the world. The story of the underdog, finding that diamond in the rough, those are the key points of interest behind our process. Through the purchase of a UUC PFP, we in turn curate talents from all ends of the earth and bring them front and center, every week, every month, every year, to you. This process allows for a dynamic NFT gallery, filled with designers and musicians, with surprise VIP guests, cross-community collaboration and charity auctions that will help generate proceeds for inner-city youth art & music programs. Join us as we make NFT history together, with you."
-            collectionPhoto="https://discord.com/channels/@me/941731903982170112/1005132131464380477"
-            clientId="a1a33379-1866-43ec-8313-8bf81c5e79d7"
+            collectionTitle="Urban Uprise Crew (Test)"
+            collectionDescription="This is a test collection"
+            collectionPhoto="https://hidden-wave-4411.on.fleek.co/_next/static/media/WhiteUUC.9c066b7e.png"
+            clientId="2ecfdea0-b3f0-4f91-9689-3f9a06b92fbd"
             mintConfig={{
               type: "thirdweb-drop",
               totalPrice: totalPrice,
               quantity: totalQuantity,
             }}
+            environment="staging"
           />
         </div>
       </div>
