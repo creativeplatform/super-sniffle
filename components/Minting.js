@@ -1,11 +1,22 @@
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
+import toast, {Toaster} from 'react-hot-toast';
+import { useReward } from 'react-rewards';
+import { BigNumber } from "ethers";
 import {
+  ChainId,
   useMetamask,
+  useContractMetadata,
   useAddress,
   useNFTDrop,
+  useNFT,
   useWalletConnect,
   useCoinbaseWallet,
   useClaimNFT,
+  useEditionDrop, 
+  connectWithMetamask,
+  useNetworkMismatch,
+  useNetwork,
+  useActiveClaimCondition,
 } from "@thirdweb-dev/react";
 
 const Minting = () => {
@@ -17,17 +28,74 @@ const Minting = () => {
   const connectWithMetamask = useMetamask();
   const connectWithWalletConnect = useWalletConnect();
   const connectWithCoinbaseWallet = useCoinbaseWallet();
+  const isOnWrongNetwork = useNetworkMismatch();
+  const [, switchNetwork] = useNetwork();
+
+
   const address = useAddress();
 
   const nftDrop = useNFTDrop("0x42BECaFf3737CbB691894059717503bc1F03e316");
-
-  // Mint Constants
+  
   const amount = 1;
 
   const totalQuantity = "100";
-  const totalPrice = "1.00";
+  const totalPrice = "17730";
 
   const { mutate: claimNft, isLoading, error } = useClaimNFT(nftDrop);
+
+  
+  const {reward: confettiReward, isAnimating: isConfettiAnimating} = useReward('confettiReward', 'confetti');//for confetti celebration animation on successfully miniting
+  
+
+  // Load the active claim condition
+  const { data: activeClaimCondition } = useActiveClaimCondition(
+    nftDrop,
+    BigNumber.from(0)
+  );
+
+
+
+async function mint() {
+
+      // Make sure the user has their wallet connected.
+    if (!address) {
+      connectWithMetamask();
+      return;
+    }
+
+    // Make sure the user is on the correct network (same network as your NFT Drop is).
+    if (isOnWrongNetwork) {
+      switchNetwork && switchNetwork(ChainId.Mumbai);
+      toast.error("Switch Network to Mumbai")
+      return;
+    }
+
+    const tid=toast.loading("Confirm on Wallet !")
+    toast.custom(<span id="confettiReward"/>,{duration: 5000,});
+    try {
+      claimNft(
+        {  
+          quantity:amount,
+          to: address,
+          tokenId:0,
+         
+        },
+        {
+          onSuccess: (data) => {
+            toast.success("Successfully minted NFT", {id:tid,duration: 5000,}),
+             toast.custom(<span id="confettiReward"/>,{duration: 8000,}),
+            confettiReward();
+          },
+          onError: (error) => {
+            toast.error("Something went wrong", {id:tid,});
+          },
+        }
+      );
+    } catch (error) {
+      toast.error("Something went wrong", {id:tid,});
+    }
+  };
+
 
   if (error) {
     console.error("💩 Error claiming NFT: ", error);
@@ -37,29 +105,48 @@ const Minting = () => {
 
   return (
     <div className=" w-full ">
+    <Toaster position="bottom-center" reverseOrder={true}/>
       <div className="absolute bottom-2 left-0 right-0 m-auto z-50 w-full bg-[#AE13E3] bg-opacity-20 flex flex-col p-20 pb-7">
-        <div className="title-container flex mb-7">
-          <p className="text-5xl uppercase italic font-black   text-sky-200 ">
+        <div className="title-container flex mb-7 justify-center" >
+          <p className="text-5xl text-center uppercase italic font-black text-sky-200 glitch " data-text="Urban Uprise Crew">
             Welcome to the
             <br />
-            Urban Uprise Crew
-          </p>
+            <span>Urban Uprise Crew
+          </span></p>
         </div>
-        <div className="button-container grid grid-cols-1 gap-3 sm:grid-cols-2  lg:grid-cols-4 mt-7 md:mt-24">
+             {/* Amount claimed so far */}
+        <div className="button-container grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mt-7 md:mt-24 ">
+                  <div className=" col-start-1  col-span-4 inline-flex gap-8 justify-center  ">
+              <p>Total Minted</p>
+              {activeClaimCondition ? (
+                <p>
+                  {/* Claimed supply so far */}
+                  <b>{activeClaimCondition.currentMintSupply}</b>
+                  {" / "}
+                  {activeClaimCondition.maxQuantity}
+                </p>
+              ) : (
+                // Show loading state if we're still loading the supply
+                <p>Loading...</p>
+              )}
+          </div>
+  
           {address ? (
             <>
+
               <button
-                className="flex-1 items-center bg-indigo-500 hover:bg-white hover:text-indigo-500 text-white text-md font-bold rounded-md uppercase"
-                disabled={isLoading}
-                onClick={() => claimNft({ to: address, quantity: amount })}
+                className="flex-1  bg-indigo-500 hover:bg-white hover:text-indigo-500 text-white text-md font-bold rounded-md uppercase disabled:bg-gray-400"
+                disabled={ isLoading }
+                onClick={() => mint()}
               >
-                Mint
+              {isLoading ?(<>Minting...</>):(<span>Mint</span>)}
+              
               </button>
             </>
           ) : (
             <>
               <label
-                htmlFor="my-modal"
+                for="my-modal"
                 className={`btn modal-button ${styles.UCCBtnDefaults} ${styles.UCCPrimeCTABtn}`}
               >
                 Connect Wallet
@@ -91,8 +178,8 @@ const Minting = () => {
                       onClick={connectWithWalletConnect}
                     >
                       <img
-                        className="absolute left-3 h-[23px] mr-3"
-                        src="/assets/Wallets/WalletConnect-icon.svg"
+                        className="absolute left-3 h-[30px] mr-3"
+                        src="/assets/Wallets/walletconnect.svg"
                       />
                       <span className="ml-11"> Wallet Connect</span>
                     </label>
@@ -102,14 +189,14 @@ const Minting = () => {
                     >
                       <img
                         className="absolute left-3 h-[30px] mr-3"
-                        src="/assets/Wallets/cbw.svg"
+                        src="/assets/Wallets/coinbase-wallet.svg"
                       />
                       <span className="ml-11"> Coinbase Wallet</span>
                     </label>
                   </ul>
                   <div className="modal-action border-t-4 border-slate-700/30 py-5 px-7">
                     <label
-                      htmlFor="my-modal"
+                      for="my-modal"
                       className="btn min-w-[120px] tracking-wider"
                     >
                       Close
@@ -121,16 +208,15 @@ const Minting = () => {
           )}
           <CrossmintPayButton
             className={styles.UCCBtnDefaults}
-            collectionTitle="Urban Uprise Crew (Test)"
-            collectionDescription="This is a test collection"
-            collectionPhoto="https://hidden-wave-4411.on.fleek.co/_next/static/media/WhiteUUC.9c066b7e.png"
-            clientId="2ecfdea0-b3f0-4f91-9689-3f9a06b92fbd"
+            collectionTitle="Urban Uprise Crew"
+            collectionDescription="The UUC was formed to showcase the amazing creative talents throughout the world. The story of the underdog, finding that diamond in the rough, those are the key points of interest behind our process. Through the purchase of a UUC PFP, we in turn curate talents from all ends of the earth and bring them front and center, every week, every month, every year, to you. This process allows for a dynamic NFT gallery, filled with designers and musicians, with surprise VIP guests, cross-community collaboration and charity auctions that will help generate proceeds for inner-city youth art & music programs. Join us as we make NFT history together, with you."
+            collectionPhoto="https://discord.com/channels/@me/941731903982170112/1005132131464380477"
+            clientId="a1a33379-1866-43ec-8313-8bf81c5e79d7"
             mintConfig={{
               type: "thirdweb-drop",
               totalPrice: totalPrice,
               quantity: totalQuantity,
             }}
-            environment="staging"
           />
         </div>
       </div>
