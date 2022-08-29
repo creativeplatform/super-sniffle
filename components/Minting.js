@@ -71,19 +71,20 @@ async function mint() {
     }
 
     const tid=toast.loading("Confirm on Wallet !")
-
+    toast.custom(<span id="confettiReward"/>,{duration: 5000,});
     try {
       claimNft(
         {  
           quantity:amount,
           to: address,
+          tokenId:0,
          
         },
         {
           onSuccess: (data) => {
-            confettiReward(),
-            toast.success("Successfully minted NFT", {id:tid,}),
-            toast.custom(<span id="confettiReward" />)
+            toast.success("Successfully minted NFT", {id:tid,duration: 5000,}),
+             toast.custom(<span id="confettiReward"/>,{duration: 8000,}),
+            confettiReward();
           },
           onError: (error) => {
             toast.error("Something went wrong", {id:tid,});
