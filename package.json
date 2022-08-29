@@ -14,15 +14,14 @@
     "@ethersproject/bignumber": "^5.7.0",
     "@thirdweb-dev/react": "^2.6.0",
     "@thirdweb-dev/sdk": "^2.3.33",
-    "confetti-js": "^0.0.18",
     "daisyui": "^2.22.0",
     "dotenv": "^16.0.1",
     "ethers": "^5.6.9",
     "next": "^12.2.4",
-    "party-js": "^2.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hot-toast": "^2.3.0"
+    "react-hot-toast": "^2.3.0",
+    "react-rewards": "^2.0.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",

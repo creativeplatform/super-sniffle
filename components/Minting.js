@@ -1,7 +1,6 @@
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import toast, {Toaster} from 'react-hot-toast';
-import {party} from "party-js";
-import {ConfettiGenerator}   from "confetti-js";
+import { useReward } from 'react-rewards';
 import { BigNumber } from "ethers";
 import {
   ChainId,
@@ -36,15 +35,18 @@ const Minting = () => {
   const address = useAddress();
 
   const nftDrop = useNFTDrop("0x42BECaFf3737CbB691894059717503bc1F03e316");
-  const editionDrop = useEditionDrop("0x7CCA079B8B8E9857fe0cB1CDA433Fda2F703f9CE")
-
+  
   const amount = 1;
 
-  const { mutate: claimNft, isLoading, error } = useClaimNFT(editionDrop);
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(nftDrop);
+
+  
+  const {reward: confettiReward, isAnimating: isConfettiAnimating} = useReward('confettiReward', 'confetti');//for confetti celebration animation on successfully miniting
+  
 
   // Load the active claim condition
   const { data: activeClaimCondition } = useActiveClaimCondition(
-    editionDrop,
+    nftDrop,
     BigNumber.from(0)
   );
 
@@ -65,22 +67,23 @@ async function mint() {
       return;
     }
 
-    const tid=toast.loading("Confirm on MetaMask !")
+    const tid=toast.loading("Confirm on Wallet !")
 
     try {
       claimNft(
         {  
           quantity:amount,
           to: address,
-          tokenId: 0,
          
         },
         {
           onSuccess: (data) => {
-            toast.success("Successfully minted NFT", {id:tid,});
+            confettiReward(),
+            toast.success("Successfully minted NFT", {id:tid,}),
+            toast.custom(<span id="confettiReward" />)
           },
           onError: (error) => {
-            toast.error("Something went wrong", {id:tid,} );
+            toast.error("Something went wrong", {id:tid,});
           },
         }
       );
@@ -98,7 +101,7 @@ async function mint() {
 
   return (
     <div className=" w-full ">
-    <Toaster id="my-canvas" position="bottom-center" reverseOrder={true}/>
+    <Toaster position="bottom-center" reverseOrder={true}/>
       <div className="absolute bottom-2 left-0 right-0 m-auto z-50 w-full bg-[#AE13E3] bg-opacity-20 flex flex-col p-20 pb-7">
         <div className="title-container flex mb-7 justify-center" >
           <p className="text-5xl text-center uppercase italic font-black text-sky-200 glitch " data-text="Urban Uprise Crew">
@@ -108,10 +111,8 @@ async function mint() {
           </span></p>
         </div>
              {/* Amount claimed so far */}
-
-
-        <div className="button-container grid grid-cols-2 gap-3 sm:grid-cols-2 lg:grid-cols-4 mt-7 md:mt-24 justify-center">
-                  <div className=" col-start-1 col-span-4 inline-flex gap-8 justify-center ">
+        <div className="button-container grid gap-3 sm:grid-cols-2 lg:grid-cols-4 mt-7 md:mt-24 ">
+                  <div className=" col-start-1  col-span-4 inline-flex gap-8 justify-center  ">
               <p>Total Minted</p>
               {activeClaimCondition ? (
                 <p>
@@ -125,9 +126,10 @@ async function mint() {
                 <p>Loading...</p>
               )}
           </div>
-
+  
           {address ? (
             <>
+
               <button
                 className="flex-1  bg-indigo-500 hover:bg-white hover:text-indigo-500 text-white text-md font-bold rounded-md uppercase disabled:bg-gray-400"
                 disabled={ isLoading }
