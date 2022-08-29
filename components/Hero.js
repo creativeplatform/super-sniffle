@@ -26,7 +26,7 @@ function Hero() {
         {isShown ? (
           <>
             <span className="m-auto top-0 w-fit left-0 right-0 font-black text-sm uppercase tracking-widest text-center absolute">
-              Free a soul from captivity
+              Free a creative soul from captivity
             </span>
           </>
         ) : (

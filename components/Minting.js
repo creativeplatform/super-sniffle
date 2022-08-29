@@ -38,6 +38,9 @@ const Minting = () => {
   
   const amount = 1;
 
+  const totalQuantity = "100";
+  const totalPrice = "17730";
+
   const { mutate: claimNft, isLoading, error } = useClaimNFT(nftDrop);
 
   
@@ -210,8 +213,8 @@ async function mint() {
             clientId="a1a33379-1866-43ec-8313-8bf81c5e79d7"
             mintConfig={{
               type: "thirdweb-drop",
-              totalPrice: "<SELECTED_PRICE_IN_MATIC>",
-              quantity: "<NUMBER_OF_NFTS>",
+              totalPrice: totalPrice,
+              quantity: totalQuantity,
             }}
           />
         </div>

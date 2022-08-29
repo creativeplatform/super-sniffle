@@ -37,10 +37,10 @@ const Footer = () => {
               <ul className="text-gray-600 dark:text-gray-400">
                 <li className="mb-4">
                   <a
-                    href="https://creativeplatform.xyz/"
+                    href="https://inner-cityarts.org/"
                     className="hover:underline after:content-['_↗'] ..."
                   >
-                    Creative
+                    Inner-City Arts
                   </a>
                 </li>
                 <li>
