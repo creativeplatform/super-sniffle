@@ -179,7 +179,7 @@ async function mint() {
                     >
                       <img
                         className="absolute left-3 h-[23px] mr-3"
-                        src="/assets/Wallets/walletconnect-icon.svg"
+                        src="/assets/Wallets/WalletConnect-icon.svg"
                       />
                       <span className="ml-11"> Wallet Connect</span>
                     </label>
