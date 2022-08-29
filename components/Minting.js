@@ -39,7 +39,7 @@ const Minting = () => {
   const amount = 1;
 
   const totalQuantity = "100";
-  const totalPrice = "17730";
+  const totalPrice = "0.9";
 
   const { mutate: claimNft, isLoading, error } = useClaimNFT(nftDrop);
 
