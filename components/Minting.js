@@ -58,7 +58,7 @@ const Minting = () => {
           ) : (
             <>
               <label
-                for="my-modal"
+                htmlFor="my-modal"
                 className={`btn modal-button ${styles.UCCBtnDefaults} ${styles.UCCPrimeCTABtn}`}
               >
                 Connect Wallet
@@ -90,8 +90,8 @@ const Minting = () => {
                       onClick={connectWithWalletConnect}
                     >
                       <img
-                        className="absolute left-3 h-[30px] mr-3"
-                        src="/assets/Wallets/walletconnect.svg"
+                        className="absolute left-3 h-[23px] mr-3"
+                        src="/assets/Wallets/WalletConnect-icon.svg"
                       />
                       <span className="ml-11"> Wallet Connect</span>
                     </label>
@@ -101,14 +101,14 @@ const Minting = () => {
                     >
                       <img
                         className="absolute left-3 h-[30px] mr-3"
-                        src="/assets/Wallets/coinbase-wallet.svg"
+                        src="/assets/Wallets/cbw.svg"
                       />
                       <span className="ml-11"> Coinbase Wallet</span>
                     </label>
                   </ul>
                   <div className="modal-action border-t-4 border-slate-700/30 py-5 px-7">
                     <label
-                      for="my-modal"
+                      htmlFor="my-modal"
                       className="btn min-w-[120px] tracking-wider"
                     >
                       Close

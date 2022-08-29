@@ -32,7 +32,7 @@ function Hero() {
         ) : (
           <>
             <div className="h-[350px] w-[350px] relative m-auto left-0 right-0 mt-11">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7d8dff] opacity-25"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7d8dff] opacity-25"></span>
             </div>
           </>
         )}
