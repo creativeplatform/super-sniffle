@@ -25,7 +25,7 @@ const Minting = () => {
   const styles = {
     BtnWIconsDefault: `relative tracking-wider text-indigo-500 hover:border-2 max-w-[270px] py-4 my-2 hover:border-white btn text-left`,
     UCCPrimeCTABtn: `bg-[#05cc47] hover:bg-slate-700 hover:text-[#05cc47] `,
-    UCCBtnDefaults: `lg:max-w-[350px] hover:indigo-500 max-w-[100%] font-bold px-20 w-full m-auto mb-7 text-sm  h-[50px] border-none capitalize text-center text-white rounded-md `,
+    UCCBtnDefaults: `max-w-fit hover:indigo-500 md:max-w-[100%] font-bold px-14 md:px-20   m-auto mb-4 text-sm  h-[50px] border-none capitalize text-center text-white rounded-md `,
   };
   const connectWithMetamask = useMetamask();
   const connectWithWalletConnect = useWalletConnect();
@@ -111,7 +111,7 @@ const Minting = () => {
       <Toaster position="bottom-center" reverseOrder={true} />
       <div className="absolute top-0 bottom-0 left-0 right-0 m-auto z-50 w-full bg-[#AE13E3] bg-opacity-20 flex flex-col ">
         <div className="relative w-full h-full ">
-          <div className="absolute m-auto left-0 top-0 bottom-0 right-0 w-fit h-fit z-30 ">
+          <div className="absolute m-auto left-0 top-0 bottom-0 right-0 max-w-fit max-h-fit mt-10 z-30 ">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -124,7 +124,7 @@ const Minting = () => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0 }}
+             initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ delay: 1 }}
@@ -152,7 +152,7 @@ const Minting = () => {
               <></>
             ) : (
               <>
-                <div className="pt-7 w-full  text-center">
+                <div className="pt-7 md:inline-flex md:gap-6 w-full  text-center">
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -269,7 +269,7 @@ const Minting = () => {
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.3, duration: 0.22 }}
               >
-                <div className=" mt-[9%] relative w-full max-w-md m-auto z-50">
+                <div className=" mt-[%] relative w-full max-w-md m-auto z-50">
                   {isLoading ? (
                     <>
                       <div className="text-center rounded-xl z-50 bg-black/90 w-full h-full absolute left-0 right-0 top-0 bottom-0 m-auto">
