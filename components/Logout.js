@@ -12,12 +12,11 @@ function Hero() {
     <>
       {address ? (
         <>
-          <div className="flow-root max-w-[168px] p-3 m-3 rounded-xl border-2  border-slate-800 ">
+          <div className="flow-root max-w-[168px]  rounded-md border-2  border-slate-800 ">
             <a
               onClick={disconnectWallet}
-              className="-m-3 p-3 flex items-center rounded-md text-base font-medium  hover:bg-gray-100 text-white"
+              className="flex items-center py-2 px-3  hover:bg-gray-100 text-white"
             >
-              <span className="mx-3">Disconnect</span>
               <svg
                 width="30px"
                 height="20px"
