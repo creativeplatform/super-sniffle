@@ -242,12 +242,15 @@ const Minting = () => {
                   >
                     <CrossmintPayButton
                       className={styles.UCCBtnDefaults}
-                      collectionTitle="Urban Uprise Crew (Test)"
-                      collectionDescription="This is a test collection"
-                      collectionPhoto="https://hidden-wave-4411.on.fleek.co/_next/static/media/WhiteUUC.9c066b7e.png"
-                      clientId="2ecfdea0-b3f0-4f91-9689-3f9a06b92fbd"
-                      mintConfig={{"type":"thirdweb-drop","totalPrice": totalPrice,"quantity": totalQuantity}}
-                      environment="staging"
+                      collectionTitle="Urban Uprise Crew"
+                      collectionDescription="The UUC was formed to showcase the amazing creative talents throughout the world. The story of the underdog, finding that diamond in the rough, those are the key points of interest behind our process. Through the purchase of a UUC PFP, we in turn curate talents from all ends of the earth and bring them front and center, every week, every month, every year, to you. This process allows for a dynamic NFT gallery, filled with designers and musicians, with surprise VIP guests, cross-community collaboration and charity auctions that will help generate proceeds for inner-city youth art & music programs. Join us as we make NFT history together, with you."
+                      collectionPhoto="https://discord.com/channels/@me/941731903982170112/1005132131464380477"
+                      clientId="a1a33379-1866-43ec-8313-8bf81c5e79d7"
+                      mintConfig={{
+                        type: "thirdweb-drop",
+                        totalPrice: totalPrice,
+                        quantity: totalQuantity,
+                      }}
                     />{" "}
                   </motion.div>
                 </div>
@@ -266,10 +269,10 @@ const Minting = () => {
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.3, duration: 0.22 }}
               >
-                <div className=" mt-[%] relative w-full max-w-md m-auto z-50">
+                <div className=" mt-1 relative  max-w-fit m-auto z-50 ">
                   {isLoading ? (
                     <>
-                      <div className="text-center rounded-xl z-50 bg-black/90 w-full h-full absolute left-0 right-0 top-0 bottom-0 m-auto">
+                      <div className="text-center rounded-full z-50 bg-black/90 w-full h-full absolute left-0 right-0 top-0 bottom-0 m-auto">
                         <motion.span
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
@@ -309,11 +312,11 @@ const Minting = () => {
                     whileHover={{ rotate: [0, 1, -1, 0] }}
                     transition={{ delay: 0.0, duration: 0.22 }}
                   >
-                    <div className="w-5/6 bg-white:bg-gray-800 rounded-lg shadow-lg dark:bg-gray-800 m-auto">
-                      <div className="px-4 py-2 text-center">
+                    <div className="w-fit bg-white bg-gray-800 rounded-lg shadow-lg dark:bg-gray-800 m-auto">
+                      <div className=" text-center">
                         {revealState == false ? (
                           <>
-                            <h1 className="text-xl tracking-wider font-black italic my-3 text-gray-800 uppercase dark:text-white">
+                            <h1 className="text-xl tracking-wider font-black italic my-2 bg-gray-800 uppercase bg-white dark:text-white">
                               <motion.span
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
@@ -363,7 +366,7 @@ const Minting = () => {
                             transition={{ delay: 1.35 }}
                           >
                             <img
-                              className="object-cover w-full max-h-46 mt-2"
+                              className="object-fill  w-full max-h-80 "
                               src="/assets/UUCmint.gif"
                               alt="UUC Animation"
                             />
@@ -381,7 +384,7 @@ const Minting = () => {
                               autoPlay
                               loop
                               style={{ width: "500px", height: "500px" }}
-                              className="object-cover w-full max-h-46 mt-2"
+                              className="object-fill  w-full max-h-80"
                               alt="UUC Animation"
                             >
                               <source
@@ -398,7 +401,7 @@ const Minting = () => {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0 }}
                         transition={{ delay: 1.45 }}
-                        className="text-center bg-gray-900 w-full"
+                        className="text-center bg-gray-900 max-w-full "
                       >
                         {revealState == false ? (
                           <>
