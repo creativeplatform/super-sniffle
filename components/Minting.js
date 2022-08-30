@@ -5,15 +5,11 @@ import { BigNumber } from "ethers";
 import {
   ChainId,
   useMetamask,
-  useContractMetadata,
   useAddress,
   useNFTDrop,
-  useNFT,
   useWalletConnect,
   useCoinbaseWallet,
   useClaimNFT,
-  useEditionDrop, 
-  connectWithMetamask,
   useNetworkMismatch,
   useNetwork,
   useActiveClaimCondition,
@@ -44,7 +40,7 @@ const Minting = () => {
   const { mutate: claimNft, isLoading, error } = useClaimNFT(nftDrop);
 
   
-  const {reward: confettiReward, isAnimating: isConfettiAnimating} = useReward('confettiReward', 'confetti');//for confetti celebration animation on successfully miniting
+  const {reward: confettiReward, isAnimating: isConfettiAnimating} = useReward('confettiReward', 'confetti'); //for confetti celebration animation on successfully miniting
   
 
   // Load the active claim condition
@@ -196,7 +192,7 @@ async function mint() {
                   </ul>
                   <div className="modal-action border-t-4 border-slate-700/30 py-5 px-7">
                     <label
-                      for="my-modal"
+                      htmlFor="my-modal"
                       className="btn min-w-[120px] tracking-wider"
                     >
                       Close
