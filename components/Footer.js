@@ -125,7 +125,7 @@ const Footer = () => {
               <span className="sr-only">Facebook page</span>
             </a>
             <a
-              href="https://www.instagram.com/urban_uprise_crew"
+              href="https://www.instagram.com/urbanuprisecrew"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
             >
               <svg

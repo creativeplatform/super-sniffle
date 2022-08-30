@@ -324,7 +324,7 @@ const Minting = () => {
                                 transition={{ delay: 1 }}
                               >
                                 <span className="text-center p-3 text-xs font-bold uppercase text-purple-400 tracking-widest ">
-                                  Free a soul from captivity
+                                  Free a creative soul from captivity
                                 </span>
                               </motion.span>{" "}
                               <br />
