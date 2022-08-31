@@ -113,7 +113,7 @@ const Minting = () => {
       <Toaster position="bottom-center" reverseOrder={true} />
       <div className="absolute top-0 bottom-0 left-0 right-0 m-auto z-50 w-full bg-[#AE13E3] bg-opacity-20 flex flex-col ">
         <div className="relative w-full h-full ">
-          <div className="absolute m-auto left-0 top-0 bottom-0 right-0 max-w-fit max-h-fit mt-10 z-30 ">
+          <div className="absolute m-auto left-0 top-0 bottom-0 right-0 max-w-fit max-h-fit mt-10 z-30 overflow-hidden ">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
