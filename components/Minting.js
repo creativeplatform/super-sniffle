@@ -152,7 +152,7 @@ const Minting = () => {
               <></>
             ) : (
               <>
-                <div className="pt-7 md:inline-flex md:gap-6 w-full  text-center">
+                <div className="pt-10 md:inline-flex md:gap-6 w-full  text-center">
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -269,10 +269,10 @@ const Minting = () => {
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.3, duration: 0.22 }}
               >
-                <div className=" mt-1 relative  max-w-fit m-auto z-50 ">
+                <div className=" mt-9 md:mt-2 relative  max-w-fit m-auto z-50">
                   {isLoading ? (
                     <>
-                      <div className="text-center rounded-full z-50 bg-black/90 w-full h-full absolute left-0 right-0 top-0 bottom-0 m-auto">
+                      <div className="text-center rounded-xl z-50 bg-black/90 w-full h-full absolute left-0 right-0 top-0 bottom-0 m-auto">
                         <motion.span
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
@@ -280,9 +280,9 @@ const Minting = () => {
                           transition={{ delay: 1 }}
                           className="h-20 w-fit text-center absolute m-auto left-0 right-0 top-0 bottom-0"
                         >
-                          <span className="  text-xs font-bold uppercase text-green-400 tracking-widest ">
+                          <span className=" text-xs font-bold uppercase text-green-400 tracking-widest ">
                             <div
-                              className="glitch max-w-[120px] text-xs opacity-60"
+                              className="glitch max-w-[120px]  text-xs opacity-60"
                               data-text="Minting"
                             >
                               <span className="text-xs glitch__main ">
@@ -312,11 +312,11 @@ const Minting = () => {
                     whileHover={{ rotate: [0, 1, -1, 0] }}
                     transition={{ delay: 0.0, duration: 0.22 }}
                   >
-                    <div className="w-fit bg-white bg-gray-800 rounded-lg shadow-lg dark:bg-gray-800 m-auto">
+                    <div className="w-fit  bg-white bg-gray-800 rounded-xl shadow-lg dark:bg-gray-800 m-auto">
                       <div className=" text-center">
                         {revealState == false ? (
                           <>
-                            <h1 className="text-xl tracking-wider font-black italic my-2 bg-gray-800 uppercase bg-white dark:text-white">
+                            <h1 className="text-xl tracking-wider font-black italic my-2 uppercase dark:text-white">
                               <motion.span
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
@@ -383,8 +383,8 @@ const Minting = () => {
                             <video
                               autoPlay
                               loop
-                              style={{ width: "500px", height: "500px" }}
-                              className="object-fill  w-full max-h-80"
+                              style={{ width: "360px", height: "360px" }}
+                              className="object-fill  w-full max-h-[21rem]"
                               alt="UUC Animation"
                             >
                               <source
@@ -459,7 +459,7 @@ const Minting = () => {
                         exit={{ opacity: 0 }}
                         transition={{ delay: 1.95 }}
                       >
-                        <div className="flex items-center justify-between px-4 py-2 bg-gray-900 h-20">
+                        <div className="flex items-center rounded-b-xl justify-between px-4 py-2 bg-gray-900 h-20">
                           {revealState == false ? (
                             <>
                               <motion.button
