@@ -152,7 +152,7 @@ const Minting = () => {
               <></>
             ) : (
               <>
-                <div className="pt-10 md:inline-flex md:gap-6 w-full  text-center">
+                <div className="pt-20 md:pt-10 md:inline-flex md:gap-6 w-full  text-center">
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
