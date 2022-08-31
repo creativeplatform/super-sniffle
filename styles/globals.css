@@ -4,7 +4,7 @@
 
 .glitch {
   animation: glitch-skew 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 4s infinite;
-
+overflow: hidden;
   font-size: 8rem;
   font-weight: 900;
   line-height: 1;
@@ -48,12 +48,14 @@
   top: 0;
   width: 100%;
   z-index: 1;
+  overflow: hidden;
+
 }
 .glitch__line--first {
-  animation: glitch-line 2s linear infinite;
+  animation: glitch-line 2s linear  infinite;
 }
 .glitch__line--second {
-  animation: glitch-line 1s linear 1s infinite;
+  animation: glitch-line 1s linear infinite;
 }
 
 @keyframes glitch {
@@ -106,6 +108,7 @@
   100% {
     top: 100%;
   }
+
 }
 @media (max-width: 768px) {
   .glitch {

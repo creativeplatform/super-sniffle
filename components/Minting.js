@@ -36,20 +36,21 @@ const Minting = () => {
   const address = useAddress();
 
   const nftDrop = useNFTDrop("0x42BECaFf3737CbB691894059717503bc1F03e316");
+  const editionDrop = useEditionDrop("0x7CCA079B8B8E9857fe0cB1CDA433Fda2F703f9CE")
 
   const amount = 1;
 
   const totalQuantity = "100";
   const totalPrice = "0.9";
 
-  const { mutate: claimNft, isLoading, error } = useClaimNFT(nftDrop);
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(editionDrop);
 
   const { reward: confettiReward, isAnimating: isConfettiAnimating } =
     useReward("confettiReward", "confetti"); //for confetti celebration animation on successfully miniting
 
   // Load the active claim condition
   const { data: activeClaimCondition } = useActiveClaimCondition(
-    nftDrop,
+    editionDrop,
     BigNumber.from(0)
   );
 
@@ -130,7 +131,7 @@ const Minting = () => {
               transition={{ delay: 1 }}
             >
               <div
-                className="glitch max-w-lg opacity-60"
+                className="glitch max-w-lg opacity-60 overflow-hidden"
                 data-text="Urban Uprise Crew"
               >
                 <span className="glitch__color glitch__color--red">
@@ -366,9 +367,9 @@ const Minting = () => {
                             transition={{ delay: 1.35 }}
                           >
                             <img
-                              className="object-fill  w-full max-h-80 "
+                              className="object-scale-down pb-2 w-full max-h-80   "
                               src="/assets/UUCmint.gif"
-                              alt="UUC Animation"
+                              alt="UUC Animation" 
                             />
                           </motion.span>
                         </>
@@ -383,8 +384,8 @@ const Minting = () => {
                             <video
                               autoPlay
                               loop
-                              style={{ width: "360px", height: "360px" }}
-                              className="object-fill  w-full max-h-[21rem]"
+                              style={{ width: "500px", height: "500px" }}
+                              className="object-scale-down  max-w-fit max-h-[21rem]"
                               alt="UUC Animation"
                             >
                               <source
