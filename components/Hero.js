@@ -13,7 +13,7 @@ function Hero() {
     UCCBtnDefaults: `max-w-[350px] font-bold  px-20 w-full text-sm px-3 h-[50px] border-none capitalize text-center flex-1 inline-flex items-center text-white text-sm rounded-md `,
   };
   return (
-    <div className="max-w-screen-lg w-full pt-20 mx-auto ">
+    <div className="max-w-screen-lg w-full mx-auto ">
       <div
         className="relative w-full h-[350px] mt-28 blur-2xl hover:blur-none transition-all ease-in duration-300"
         onMouseEnter={() => setIsShown(true)}
