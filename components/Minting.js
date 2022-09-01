@@ -38,7 +38,6 @@ const Minting = () => {
   const nftDrop = useNFTDrop("0x42BECaFf3737CbB691894059717503bc1F03e316");
 
 
-
   const amount = 1;
 
   const totalQuantity = "100";
@@ -271,7 +270,7 @@ const Minting = () => {
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.3, duration: 0.22 }}
               >
-                <div className=" mt-9 md:mt-2 relative  max-w-fit m-auto z-50">
+                <div className=" mt-8 md:mt-1.5 relative  max-w-fit m-auto z-50">
                   {isLoading ? (
                     <>
                       <div className="text-center rounded-xl z-50 bg-black/90 w-full h-full absolute left-0 right-0 top-0 bottom-0 m-auto">
@@ -314,7 +313,7 @@ const Minting = () => {
                     whileHover={{ rotate: [0, 1, -1, 0] }}
                     transition={{ delay: 0.0, duration: 0.22 }}
                   >
-                    <div className="w-fit  bg-white bg-gray-800 rounded-xl shadow-lg dark:bg-gray-800 m-auto">
+                    <div className="w-fit bg-white bg-gray-800 rounded-xl shadow-lg dark:bg-gray-800 m-auto">
                       <div className=" text-center">
                         {revealState == false ? (
                           <>
@@ -385,8 +384,8 @@ const Minting = () => {
                             <video
                               autoPlay
                               loop
-                              style={{ width: "500px", height: "500px" }}
-                              className="object-scale-down  max-w-fit max-h-[21rem]"
+                              controls
+                              className="object-scale-down max-w-fit max-h-[21rem]"
                               alt="UUC Animation"
                             >
                               <source
