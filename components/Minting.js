@@ -36,7 +36,6 @@ const Minting = () => {
   const address = useAddress();
 
   const nftDrop = useNFTDrop("0x42BECaFf3737CbB691894059717503bc1F03e316");
-const editionDrop = useEditionDrop("0x7CCA079B8B8E9857fe0cB1CDA433Fda2F703f9CE")
 
 
   const amount = 1;
@@ -44,14 +43,14 @@ const editionDrop = useEditionDrop("0x7CCA079B8B8E9857fe0cB1CDA433Fda2F703f9CE")
   const totalQuantity = "100";
   const totalPrice = "0.9";
 
-  const { mutate: claimNft, isLoading, error } = useClaimNFT(editionDrop);
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(nftDrop);
 
   const { reward: confettiReward, isAnimating: isConfettiAnimating } =
     useReward("confettiReward", "confetti"); //for confetti celebration animation on successfully miniting
 
   // Load the active claim condition
   const { data: activeClaimCondition } = useActiveClaimCondition(
-    editionDrop,
+    nftDrop,
     BigNumber.from(0)
   );
 
