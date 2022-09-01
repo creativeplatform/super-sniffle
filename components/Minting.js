@@ -385,7 +385,7 @@ const editionDrop = useEditionDrop("0x7CCA079B8B8E9857fe0cB1CDA433Fda2F703f9CE")
                             <video
                               autoplay
                               loop
-                              controls
+                              
                               className="object-scale-down max-w-fit max-h-[21rem]"
                               alt="UUC Animation"
                             >
