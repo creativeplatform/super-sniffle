@@ -19,6 +19,7 @@ const Main = () => {
           alt="UUC_city-of-shadows"
           layout="fill"
           className="absolute w-full h-full"
+          priority
         />
         <Minting />
       </div>

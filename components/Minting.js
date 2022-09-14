@@ -161,7 +161,7 @@ const Minting = () => {
                     transition={{ delay: 1.5 }}
                   >
                     <label
-                      for="my-modal"
+                      htmlFor="my-modal"
                       className={`btn modal-button ${styles.UCCBtnDefaults} ${styles.UCCPrimeCTABtn}`}
                     >
                       Connect Wallet
@@ -215,7 +215,7 @@ const Minting = () => {
                         </ul>
                         <div className="modal-action border-t-4 border-slate-700/30 py-5 px-7">
                           <label
-                            for="my-modal"
+                            htmlFor="my-modal"
                             className="btn min-w-[120px] tracking-wider"
                           >
                             Close
