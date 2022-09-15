@@ -12,8 +12,6 @@ import {
   useWalletConnect,
   useCoinbaseWallet,
   useClaimNFT,
-  useEditionDrop,
-  connectWithMetamask,
   useNetworkMismatch,
   useNetwork,
   useActiveClaimCondition,
@@ -31,17 +29,13 @@ const Minting = () => {
   const connectWithWalletConnect = useWalletConnect();
   const connectWithCoinbaseWallet = useCoinbaseWallet();
   const isOnWrongNetwork = useNetworkMismatch();
-  const [, switchNetwork] = useNetwork();
+  const [ switchNetwork ] = useNetwork();
 
   const address = useAddress();
 
-  const nftDrop = useNFTDrop("0x42BECaFf3737CbB691894059717503bc1F03e316");
-
+  const nftDrop = useNFTDrop("0x58BB5f5F83aac48b8ccf5cDAe39c1af5027B2753");
 
   const amount = 1;
-
-  const totalQuantity = "100";
-  const totalPrice = "0.9";
 
   const { mutate: claimNft, isLoading, error } = useClaimNFT(nftDrop);
 
@@ -173,7 +167,7 @@ const Minting = () => {
                     />
                     <div className="modal modal-bottom sm:modal-middle">
                       <div className="modal-box p-0">
-                        <div className="modal-header font-medium border-b-4 border-slate-700/30   capitalize px-7 py-5">
+                        <div className="modal-header font-medium border-b-4 border-slate-700/30 capitalize px-7 py-5">
                           <h3 className="uppercase italic font-black text-sky-200/70 ">
                             Choose your wallet
                           </h3>
@@ -208,7 +202,7 @@ const Minting = () => {
                           >
                             <img
                               className="absolute left-3 h-[30px] mr-3"
-                              src="/assets/Wallets/cbw.svg"
+                              src="/assets/Wallets/CBW.svg"
                             />
                             <span className="ml-11"> Coinbase Wallet</span>
                           </label>
@@ -243,13 +237,11 @@ const Minting = () => {
                   >
                     <CrossmintPayButton
                       className={styles.UCCBtnDefaults}
-                      clientId="2ecfdea0-b3f0-4f91-9689-3f9a06b92fbd"
-                      mintConfig={{
-                        type: "thirdweb-drop",
-                        totalPrice: totalPrice,
-                        quantity: totalQuantity,
-                      }}
-                    />{" "}
+                      clientId="c2186cbd-693e-4e7c-b6cc-dbc63392e706"
+                      environment="staging"
+                      mintConfig={{"type":"thirdweb-drop","totalPrice":`${process.env.NEXT_PUBLIC_TOTAL_PRICE}`,"_mintAmount":"1"}}
+                    />
+                    {" "}
                   </motion.div>
                 </div>
               </>
