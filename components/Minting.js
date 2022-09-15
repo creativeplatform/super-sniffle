@@ -15,6 +15,7 @@ import {
   useNetworkMismatch,
   useNetwork,
   useActiveClaimCondition,
+  useContract,
 } from "@thirdweb-dev/react";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -32,18 +33,17 @@ const Minting = () => {
   const [ switchNetwork ] = useNetwork();
 
   const address = useAddress();
-
-  const nftDrop = useNFTDrop("0x58BB5f5F83aac48b8ccf5cDAe39c1af5027B2753");
+  const { contract} = useContract("0x58BB5f5F83aac48b8ccf5cDAe39c1af5027B2753");
 
   const amount = 1;
 
-  const { mutate: claimNft, isLoading, error } = useClaimNFT(nftDrop);
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(contract);
 
   const { reward: confettiReward, isAnimating: isConfettiAnimating } =
     useReward("confettiReward", "confetti"); //for confetti celebration animation on successfully miniting
 
   // Load the active claim condition
-  const { data: activeClaimCondition } = useActiveClaimCondition(nftDrop);
+  const { data: activeClaimCondition } = useActiveClaimCondition(contract);
 
   async function mint() {
     // Make sure the user has their wallet connected.
@@ -198,7 +198,7 @@ const Minting = () => {
                           >
                             <img
                               className="absolute left-3 h-[30px] mr-3"
-                              src="/assets/Wallets/CBW.svg"
+                              src="/assets/Wallets/cbw.svg"
                             />
                             <span className="ml-11"> Coinbase Wallet</span>
                           </label>
