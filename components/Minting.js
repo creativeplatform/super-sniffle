@@ -43,10 +43,7 @@ const Minting = () => {
     useReward("confettiReward", "confetti"); //for confetti celebration animation on successfully miniting
 
   // Load the active claim condition
-  const { data: activeClaimCondition } = useActiveClaimCondition(
-    nftDrop,
-    BigNumber.from(0)
-  );
+  const { data: activeClaimCondition } = useActiveClaimCondition(nftDrop);
 
   async function mint() {
     // Make sure the user has their wallet connected.
@@ -69,7 +66,6 @@ const Minting = () => {
         {
           quantity: amount,
           to: address,
-          tokenId: 0,
         },
         {
           onSuccess: (data) => {
