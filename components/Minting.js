@@ -235,7 +235,7 @@ const Minting = () => {
                       className={styles.UCCBtnDefaults}
                       clientId="c2186cbd-693e-4e7c-b6cc-dbc63392e706"
                       environment="staging"
-                      mintConfig={{"type":"thirdweb-drop","totalPrice":`${process.env.NEXT_PUBLIC_TOTAL_PRICE}`,"_mintAmount":"1"}}
+                      mintConfig={{"type":"thirdweb-drop","totalPrice":"0.00","_mintAmount":"1"}}
                     />
                     {" "}
                   </motion.div>
