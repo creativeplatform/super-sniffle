@@ -1,9 +1,12 @@
 import '../styles/globals.css'
 import { ChainId, IpfsStorage, ThirdwebProvider } from "@thirdweb-dev/react"
 
+const activeChainId = ChainId.Mumbai;
+
 function MyApp({ Component, pageProps }) {
   return(
     <ThirdwebProvider 
+    desiredChainId={activeChainId}
     dAppMeta={{
       name: "Urban Uprise Crew",
       description: "Join the Revolution, Free Your Creative Soul",

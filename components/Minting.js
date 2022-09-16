@@ -60,7 +60,7 @@ const Minting = () => {
     }
 
     const tid = toast.loading("Confirm on Wallet !");
-    toast.custom(<span id="confettiReward" />, { duration: 5000 });
+    toast.custom(<span id="confettiReward" />, { duration: 10000 });
     try {
       claimNft(
         {
@@ -73,7 +73,7 @@ const Minting = () => {
               id: tid,
               duration: 5000,
             }),
-              toast.custom(<span id="confettiReward" />, { duration: 8000 }),
+              toast.custom(<span id="confettiReward" />, { duration: 10000 }),
               confettiReward();
             revealMint();
           },
