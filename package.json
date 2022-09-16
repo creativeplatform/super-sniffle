@@ -13,6 +13,7 @@
     "@coinbase/wallet-sdk": "^3.5.2",
     "@crossmint/client-sdk-react-ui": "^0.1.7-alpha.3",
     "@ethersproject/bignumber": "^5.7.0",
+    "@thirdweb-dev/chain-icons": "^1.0.5",
     "@thirdweb-dev/react": "^3.0.2",
     "@thirdweb-dev/sdk": "^3.0.2",
     "daisyui": "^2.22.0",

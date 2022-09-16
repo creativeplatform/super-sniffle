@@ -1,13 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import Logout from "./Logout";
-import { useAddress } from "@thirdweb-dev/react";
+import { useAddress,useBalance } from "@thirdweb-dev/react";
+import { Polygon } from "@thirdweb-dev/chain-icons";
 import { motion } from "framer-motion";
 function NavBar() {
   const address = useAddress();
   const styles = {
     headerLink: `text-base font-medium text-white hover:text-KeenIcyBlue-80 mr-4`,
   };
+  const balance= useBalance();
 
   return (
     <>
@@ -26,13 +28,34 @@ function NavBar() {
                   </div>
                   <ul className="flex flex-row list-none ml-auto ">
                     <li className="  nav-item   ">
-                      <div className="mr-3 py-2 px-3 text-xs flex items-center  relative  text-left rounded-md border-2  border-slate-800">
+                      <div className="grid-rows-3 mr-3 py-0.25 px-2 text-xs flex items-center  relative  text-left rounded-md border-2  border-slate-800">
+                        <div>
+                         <h3 className="text-center  font-bold  text-green-400/80 tracking-widest text-LightGreen-100">
+                          Network:
+                        </h3>
+                        <Polygon className="w-5 h-5 ml-5"/>
+                        
+                        </div>
+                        <div>
+                         <h3 className="text-center  font-bold  text-green-400/80 tracking-widest text-LightGreen-100">
+                          Balance:
+                        </h3>
+                        <h3 className="mt-1 ml-1   text-ellipsis w-[80px] overflow-hidden  whitespace-nowrap">
+                          {balance.isLoading ? ("Loading...") : (
+                    <>
+                      {balance.data?.displayValue.slice(0, 5)}{" "} {balance.data?.symbol}
+                    </> 
+                    )}
+                        </h3>
+                        </div>
+                        <div>
                         <h3 className="text-center  font-bold  text-green-400/80 tracking-widest text-LightGreen-100">
                           Address:
                         </h3>
-                        <h3 className="mt-1 ml-1   text-ellipsis w-[60px] overflow-hidden  whitespace-nowrap">
+                        <h3 className="mt-1 ml-1   text-ellipsis w-[80px] overflow-hidden  whitespace-nowrap">
                           {address}
                         </h3>
+                        </div>
                       </div>
                     </li>
 
