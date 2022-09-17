@@ -18,8 +18,8 @@ function Hero() {
               className="flex items-center py-2 px-3  hover:bg-gray-100 text-white"
             >
               <svg
-                width="30px"
-                height="20px"
+                width="40px"
+                height="29px"
                 viewBox="0 0 246 330"
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
