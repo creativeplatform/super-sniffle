@@ -233,8 +233,7 @@ const Minting = () => {
                   >
                     <CrossmintPayButton
                       className={styles.UCCBtnDefaults}
-                      clientId="c2186cbd-693e-4e7c-b6cc-dbc63392e706"
-                      environment="staging"
+                      clientId="dc1a6ae3-7802-4d72-bd21-8340ef24b3a3"
                       mintConfig={{"type":"thirdweb-drop","totalPrice":"0.00","_mintAmount":"1"}}
                     />
                     {" "}
