@@ -485,7 +485,7 @@ const Minting = () => {
                                 }}
                                 transition={{ delay: 0.0, duration: 0.22 }}
                                 className="bg-indigo-500/50 py-3 px-5 w-full text-center rounded uppercase tracking-widest font-bold text-green-400"
-                                href="https://discord.gg/WKp3Enj8Ff"
+                                href="https://discord.gg/T7zPK57cMX"
                               >
                                 Join The Crew
                               </motion.a>

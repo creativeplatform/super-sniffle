@@ -14,28 +14,28 @@ function Partnerships() {
                 <img
                   className={styles.partnershipsLogos}
                   src="../partnerships/Creative.png"
-                  alt="Inner-CityArts"
+                  alt="Creative platform"
                 />
               </div>
               <div>
                 <img
                   className={styles.partnershipsLogos}
                   src="../partnerships/Crossmint.png"
-                  alt="Rarible"
+                  alt="Crossmint"
                 />
               </div>
               <div>
                 <img
                   className={styles.partnershipsLogos}
                   src="../partnerships/Stageverse.png"
-                  alt="Inner-CityArts"
+                  alt="Stageverse"
                 />
               </div>
               <div>
                 <img
                   className={styles.partnershipsLogos}
                   src="../partnerships/Polygon.png"
-                  alt="Inner-CityArts"
+                  alt="Polygon"
                 />
               </div>
               <div>
