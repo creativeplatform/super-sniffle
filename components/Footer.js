@@ -60,10 +60,10 @@ const Footer = () => {
               <ul className="text-gray-600 dark:text-gray-400">
                 <li className="mb-4">
                   <a
-                    href="https://github.com/creativeplatform/uuc-collection"
+                    href="https://polygonscan.com/address/0xca17D20f1A3d14c6ea977333CdE6185eF9C759f3"
                     className="hover:underline after:content-['_↗'] ..."
                   >
-                    Github
+                    Smart Contract
                   </a>
                 </li>
                 <li>
