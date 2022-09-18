@@ -1,5 +1,6 @@
-  import Image from "next/image";
+import Image from "next/image";
 import logo from "../assets/WhiteUUC.png";
+import Terms from "../components/Terms";
 
 const myLoader = ({ src, width }) => {
   return `${src}?w=${width}}`;
@@ -90,9 +91,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline">
-                    Terms &amp; Conditions
-                  </a>
+                  <Terms />
                 </li>
               </ul>
             </div>
