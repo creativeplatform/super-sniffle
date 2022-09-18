@@ -26,13 +26,12 @@ function NavBar() {
                   </div>
 
                   <ul className="flex flex-row list-none ml-auto ">
-                    <li className="nav-item ">
-                      <div className="mr-3">
-                       <ConnectWallet />
-                      </div>
+                    <li className="nav-item mr-3 ">
+                            <ConnectWallet />
                     </li>
 
                     <AuthenticatedHeader />
+                      
                   </ul>
                 </div>
               </nav>

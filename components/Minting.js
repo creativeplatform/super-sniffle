@@ -41,13 +41,13 @@ const Minting = () => {
 
   const { reward: confettiReward, isAnimating: isConfettiAnimating } =
     useReward("confettiReward", "confetti"); //for confetti celebration animation on successfully miniting
-
+  
   // Load the active claim condition
   const { data: activeClaimCondition } = useActiveClaimCondition(contract);
 
 
   async function mint() {
-    toast.custom(<span id="confettiReward" />, { duration: 10000 });
+
     // Make sure the user has their wallet connected.
     if (!address) {
       connectWithMetamask();
@@ -62,12 +62,11 @@ const Minting = () => {
     }
 
     const tid = toast.loading("Confirm on Wallet !");
-    
     try {
       claimNft(
         {
           quantity: amount,
-          to: address,       
+          to: address,      
         },
         {
           onSuccess: (data) => {
@@ -75,8 +74,7 @@ const Minting = () => {
               id: tid,
               duration: 5000,
             }),
-              toast.custom(<span id="confettiReward" />, { duration: 10000 }),
-              confettiReward();
+              confettiReward(),
             revealMint();
           },
           onError: (error) => {
@@ -101,8 +99,8 @@ const Minting = () => {
 
   return (
     <div className=" w-full ">
+    <Toaster position="bottom-center" reverseOrder={true} />
       <div className="absolute top-0 bottom-0 left-0 right-0 m-auto z-50 w-full bg-[#AE13E3] bg-opacity-20 flex flex-col ">
-        <Toaster position="bottom-center" reverseOrder={true} />
         <div className="relative w-full h-full "> 
           <div className="absolute m-auto left-0 top-0 bottom-0 right-0 max-w-fit max-h-fit mt-10 z-30 overflow-hidden ">
             <motion.div
@@ -469,6 +467,7 @@ const Minting = () => {
                                 {isLoading ? (
                                   <>Minting...</>
                                 ) : (
+
                                   <span>Mint</span>
                                 )}
                               </motion.button>
@@ -489,13 +488,17 @@ const Minting = () => {
                                 transition={{ delay: 0.0, duration: 0.22 }}
                                 className="bg-indigo-500/50 py-3 px-5 w-full text-center rounded uppercase tracking-widest font-bold text-green-400"
                                 href="https://discord.gg/WKp3Enj8Ff"
+
                               >
                                 Join The Crew
+
                               </motion.a>
                             </>
                           )}
                         </div>
                       </motion.div>
+                    </div>
+                    <div id="confettiReward"  className="w-10 h-10 mx-auto justify-center ">
                     </div>
                   </motion.div>
                 </div>
