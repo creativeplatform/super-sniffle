@@ -48,7 +48,7 @@ function Partnerships() {
               <div>
                 <img
                   className={styles.partnershipsLogos}
-                  src="../partnerships/Chainlink.png"
+                  src="../partnerships/chainlink.png"
                   alt="Chainlink"
                 />
               </div>
