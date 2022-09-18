@@ -12,7 +12,7 @@ const Main = () => {
     <>
       <NavBar />
 
-      <div className="   h-[100vh] w-full relative">
+      <div className="h-[100vh] w-full relative">
         <Image
           loader={myLoader}
           src="assets/UUC_mint_bg.jpg"
