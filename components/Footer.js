@@ -60,10 +60,10 @@ const Footer = () => {
               <ul className="text-gray-600 dark:text-gray-400">
                 <li className="mb-4">
                   <a
-                    href="https://polygonscan.com/address/0xca17D20f1A3d14c6ea977333CdE6185eF9C759f3"
+                    href="https://twitter.com/urbanuprisecrew"
                     className="hover:underline after:content-['_↗'] ..."
                   >
-                    Smart Contract
+                    Twitter
                   </a>
                 </li>
                 <li>
@@ -82,8 +82,11 @@ const Footer = () => {
               </h2>
               <ul className="text-gray-600 dark:text-gray-400">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
-                    Privacy Policy
+                <a
+                    href="https://polygonscan.com/address/0xca17D20f1A3d14c6ea977333CdE6185eF9C759f3"
+                    className="hover:underline after:content-['_↗'] ..."
+                  >
+                  Smart Contract
                   </a>
                 </li>
                 <li>
