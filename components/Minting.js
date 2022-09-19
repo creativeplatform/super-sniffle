@@ -30,7 +30,7 @@ const Minting = () => {
   const connectWithWalletConnect = useWalletConnect();
   const connectWithCoinbaseWallet = useCoinbaseWallet();
   const isOnWrongNetwork = useNetworkMismatch();
-  const [ switchNetwork ] = useNetwork();
+  const [ ,switchNetwork ] = useNetwork();
 
   const address = useAddress();
   const { contract} = useContract("0xca17D20f1A3d14c6ea977333CdE6185eF9C759f3");
