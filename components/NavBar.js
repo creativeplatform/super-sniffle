@@ -1,13 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import Logout from "./Logout";
+//import Swap from "./Swap";
 import { useAddress,ConnectWallet } from "@thirdweb-dev/react";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 function NavBar() {
   const address = useAddress();
   const styles = {
     headerLink: `text-base font-medium text-white hover:text-KeenIcyBlue-80 mr-4`,
   };
+const Swap = dynamic( () => {return import("./Swap");},{ ssr: false });
 
   return (
     <>
@@ -25,7 +28,10 @@ function NavBar() {
                     />
                   </div>
 
-                  <ul className="flex flex-row list-none ml-auto ">
+                  <ul className="flex flex-col-3 py-2 mx-auto sm:ml-auto sm:mr-3 sm:py-0" >
+                  <li className="nav-item mr-3">
+                  <Swap/>
+                  </li>
                     <li className="nav-item mr-3 ">
                             <ConnectWallet />
                     </li>
@@ -62,7 +68,7 @@ function NavBar() {
 
 const AuthenticatedHeader = () => (
   <>
-    <li>
+    <li className="nav-item ">
       <Logout />
     </li>
   </>
