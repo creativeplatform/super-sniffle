@@ -9,12 +9,12 @@ function Partnerships() {
       <section className="">
         <div className=" my-7">
           <div className="mx-auto text-center">
-            <div className="grid grid-cols-6 gap-4 mx-auto ">
+            <div className="grid grid-cols-5 gap-4 mx-auto ">
               <div>
                 <img
                   className={styles.partnershipsLogos}
                   src="../partnerships/Creative.png"
-                  alt="CreativeDAO"
+                  alt="Creative platform"
                 />
               </div>
               <div>
@@ -41,14 +41,7 @@ function Partnerships() {
               <div>
                 <img
                   className={styles.partnershipsLogos}
-                  src="../partnerships/ThirdWeb.png"
-                  alt="ThirdWeb"
-                />
-              </div>
-              <div>
-                <img
-                  className={styles.partnershipsLogos}
-                  src="../partnerships/chainlink.png"
+                  src="../partnerships/Chainlink.png"
                   alt="Chainlink"
                 />
               </div>

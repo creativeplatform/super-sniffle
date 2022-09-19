@@ -33,7 +33,7 @@ const Minting = () => {
   const [ switchNetwork ] = useNetwork();
 
   const address = useAddress();
-  const { contract} = useContract("0x58BB5f5F83aac48b8ccf5cDAe39c1af5027B2753");
+  const { contract} = useContract("0xca17D20f1A3d14c6ea977333CdE6185eF9C759f3");
 
   const amount = 1;
 
@@ -41,13 +41,11 @@ const Minting = () => {
 
   const { reward: confettiReward, isAnimating: isConfettiAnimating } =
     useReward("confettiReward", "confetti"); //for confetti celebration animation on successfully miniting
-  
+
   // Load the active claim condition
   const { data: activeClaimCondition } = useActiveClaimCondition(contract);
 
-
   async function mint() {
-
     // Make sure the user has their wallet connected.
     if (!address) {
       connectWithMetamask();
@@ -56,8 +54,8 @@ const Minting = () => {
 
     // Make sure the user is on the correct network (same network as your NFT Drop is).
     if (isOnWrongNetwork) {
-      switchNetwork && switchNetwork(ChainId.Mumbai);
-      toast.error("Switch Network to Mumbai");
+      switchNetwork && switchNetwork(ChainId.Polygon);
+      toast.error("Switch Network to Polygon");
       return;
     }
 
@@ -66,7 +64,7 @@ const Minting = () => {
       claimNft(
         {
           quantity: amount,
-          to: address,      
+          to: address,
         },
         {
           onSuccess: (data) => {
@@ -74,7 +72,7 @@ const Minting = () => {
               id: tid,
               duration: 5000,
             }),
-              confettiReward(),
+              confettiReward();
             revealMint();
           },
           onError: (error) => {
@@ -99,9 +97,9 @@ const Minting = () => {
 
   return (
     <div className=" w-full ">
-    <Toaster position="bottom-center" reverseOrder={true} />
+      <Toaster position="bottom-center" reverseOrder={true} />
       <div className="absolute top-0 bottom-0 left-0 right-0 m-auto z-50 w-full bg-[#AE13E3] bg-opacity-20 flex flex-col ">
-        <div className="relative w-full h-full "> 
+        <div className="relative w-full h-full ">
           <div className="absolute m-auto left-0 top-0 bottom-0 right-0 max-w-fit max-h-fit mt-10 z-30 overflow-hidden ">
             <motion.div
               initial={{ opacity: 0 }}
@@ -233,9 +231,8 @@ const Minting = () => {
                   >
                     <CrossmintPayButton
                       className={styles.UCCBtnDefaults}
-                      clientId="c2186cbd-693e-4e7c-b6cc-dbc63392e706"
-                      environment="staging"
-                      mintConfig={{"type":"thirdweb-drop","totalPrice":`${process.env.NEXT_PUBLIC_TOTAL_PRICE}`,"_mintAmount":"1"}}
+                      clientId="dc1a6ae3-7802-4d72-bd21-8340ef24b3a3"
+                      mintConfig={{"type":"thirdweb-drop","totalPrice":"0.00","_mintAmount":"1"}}
                     />
                     {" "}
                   </motion.div>
@@ -467,7 +464,6 @@ const Minting = () => {
                                 {isLoading ? (
                                   <>Minting...</>
                                 ) : (
-
                                   <span>Mint</span>
                                 )}
                               </motion.button>
@@ -487,18 +483,16 @@ const Minting = () => {
                                 }}
                                 transition={{ delay: 0.0, duration: 0.22 }}
                                 className="bg-indigo-500/50 py-3 px-5 w-full text-center rounded uppercase tracking-widest font-bold text-green-400"
-                                href="https://discord.gg/WKp3Enj8Ff"
-
+                                href="https://discord.gg/T7zPK57cMX"
                               >
                                 Join The Crew
-
                               </motion.a>
                             </>
                           )}
                         </div>
                       </motion.div>
                     </div>
-                    <div id="confettiReward"  className="w-10 h-10 mx-auto justify-center ">
+                     <div id="confettiReward"  className="w-10 h-10 mx-auto justify-center ">
                     </div>
                   </motion.div>
                 </div>
