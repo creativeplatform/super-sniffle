@@ -19,7 +19,7 @@ const Swap = dynamic( () => {return import("./Swap");},{ ssr: false });
           {address ? (
             <>
               <nav className="relative flex flex-wrap items-center justify-between py-2">
-                <div className="w-full mx-auto flex flex-wrap items-center justify-between px-1 sm:px-7">
+                <div className="w-full mx-auto flex flex-wrap items-center justify-between px-5 sm:px-7">
                   <div className="smcenter relative flex justify-between mb-2 md:my-auto w-auto lg:static lg:block lg:justify-start">
                     <img
                       src="/assets/Logo.jpg"
