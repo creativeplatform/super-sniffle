@@ -252,7 +252,7 @@ const Minting = () => {
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.3, duration: 0.22 }}
               >
-                <div className=" mt-8 md:mt-1.5 relative  max-w-fit m-auto z-50">
+                <div className=" mx-auto md:mt-1.5 relative  max-w-fit m-auto z-50">
                   {isLoading ? (
                     <>
                       <div className="text-center rounded-xl z-50 bg-black/90 w-full h-full absolute left-0 right-0 top-0 bottom-0 m-auto">

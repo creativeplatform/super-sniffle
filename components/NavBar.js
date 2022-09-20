@@ -20,25 +20,25 @@ const Swap = dynamic( () => {return import("./Swap");},{ ssr: false });
             <>
               <nav className="relative flex flex-wrap items-center justify-between py-3">
                 <div className="w-full mx-auto flex flex-wrap items-center justify-between px-7">
-                  <div className=" relative flex justify-between w-auto lg:static lg:block lg:justify-start">
+                  <div className="smcenter relative flex justify-between mb-2 md:my-auto w-auto lg:static lg:block lg:justify-start">
                     <img
                       src="/assets/Logo.jpg"
                       className="float-left w-11 h-11 rounded-full"
                       alt="Urban Uprise Crew"
                     />
                   </div>
-
-                  <ul className="flex flex-col-3 py-2 mx-auto sm:ml-auto sm:mr-3 sm:py-0" >
-                  <li className="nav-item mr-3">
+                  <ul className="flex flex-rows-3 gap-3 mx-auto my-auto sm:mr-3 soverflow-hidden " >
+                  <li className="nav-item mx-auto ">
                   <Swap/>
                   </li>
-                    <li className="nav-item mr-3 ">
+                    <li className="nav-item mx-auto  ">
                             <ConnectWallet />
                     </li>
 
                     <AuthenticatedHeader />
                       
                   </ul>
+                  
                 </div>
               </nav>
             </>
@@ -68,7 +68,7 @@ const Swap = dynamic( () => {return import("./Swap");},{ ssr: false });
 
 const AuthenticatedHeader = () => (
   <>
-    <li className="nav-item ">
+    <li className="nav-item mx-auto">
       <Logout />
     </li>
   </>

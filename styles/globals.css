@@ -122,7 +122,10 @@ overflow: hidden;
     font-size: 6rem;
     font-weight: 900;
   }
-
+  .smcenter{
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 @media (max-width: 320px) {
   .glitch {

@@ -43,11 +43,19 @@ isWalletConnected();
  return(
 <>  
 
-  <label htmlFor="my-modal-3" className="btn modal-button btn-md border-2 bg-transparent" >Swap</label>
+  <label htmlFor="my-modal-3" className="btn modal-button btn-md btn-circle border-0 bg-transparent" >
+                  <div className=" relative flex w-auto ">
+                    <img
+                      src="/assets/swapbutton.png"
+                      className="float-left w-12 rounded-full"
+                      alt="Urban Uprise Crew"
+                    />
+                  </div>
+  </label>
   <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-  <div className="modal modal-middle sm:modal-middle mx-auto backdrop-blur-sm ">
+  <div className="modal modal-middle sm:modal-middle mx-auto backdrop-blur-md sm:backdrop-blur-sm  "> 
   <div className="modal-box mx-auto bg-[#191B1F] ">
-  <label htmlFor="my-modal-3" className="btn btn-mds btn-circle z-20 absolute right-0 top-0 bg-transparent  ">✕</label>
+  <label htmlFor="my-modal-3" className="btn btn-sm btn-circle z-20 absolute right-1 top-1 bg-transparent text-lg font-bold hover:bg-transparent border-0">✕</label>
       <div className="Uniswap mx-auto">
         <SwapWidget
         theme={darkTheme} 
