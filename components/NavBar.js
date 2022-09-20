@@ -18,8 +18,8 @@ const Swap = dynamic( () => {return import("./Swap");},{ ssr: false });
         <div className="w-full">
           {address ? (
             <>
-              <nav className="relative flex flex-wrap items-center justify-between py-3">
-                <div className="w-full mx-auto flex flex-wrap items-center justify-between px-7">
+              <nav className="relative flex flex-wrap items-center justify-between py-2">
+                <div className="w-full mx-auto flex flex-wrap items-center justify-between px-1 sm:px-7">
                   <div className="smcenter relative flex justify-between mb-2 md:my-auto w-auto lg:static lg:block lg:justify-start">
                     <img
                       src="/assets/Logo.jpg"
@@ -27,7 +27,7 @@ const Swap = dynamic( () => {return import("./Swap");},{ ssr: false });
                       alt="Urban Uprise Crew"
                     />
                   </div>
-                  <ul className="flex flex-rows-3 gap-3 mx-auto my-auto sm:mr-3 soverflow-hidden " >
+                  <ul className="flex flex-rows-3 gap-3 mx-auto sm:mr-3 " >
                   <li className="nav-item mx-auto ">
                   <Swap/>
                   </li>
