@@ -33,7 +33,7 @@ const Minting = () => {
   const [, switchNetwork]= useNetwork();
 
   const address = useAddress();
-  const { contract} = useContract("0xca17D20f1A3d14c6ea977333CdE6185eF9C759f3");//mumbai-testnet-contract:  0x58BB5f5F83aac48b8ccf5cDAe39c1af5027B2753
+  const { contract} = useContract("0xca17D20f1A3d14c6ea977333CdE6185eF9C759f3");
 
   const amount = 1;
 
