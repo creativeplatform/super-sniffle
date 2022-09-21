@@ -428,9 +428,9 @@ const Minting = () => {
                                 {activeClaimCondition ? (
                                   <h1 className="text-center p-3 text-xs font-bold uppercase text-KeenLight-70 tracking-widest text-LightGreen-100">
                                     <b>
-                                      {activeClaimCondition.price._hex}
+                                      {activeClaimCondition?.currencyMetadata.displayValue }
                                     </b>
-                                    <span className="text-center p-3 text-xs font-bold uppercase text-KeenLight-70 tracking-widest text-LightGreen-100">WETH</span>
+                                    <span className="text-center p-3 text-xs font-bold uppercase text-KeenLight-70 tracking-widest text-LightGreen-100">{activeClaimCondition?.currencyMetadata.symbol}</span>
                                   </h1>
                                 ) : (
                                   <p>Loading...</p>
