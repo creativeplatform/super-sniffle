@@ -33,7 +33,7 @@ const Minting = () => {
   const [, switchNetwork]= useNetwork();
 
   const address = useAddress();
-  const { contract} = useContract("0x58BB5f5F83aac48b8ccf5cDAe39c1af5027B2753");//mainnet-contract: 0xca17D20f1A3d14c6ea977333CdE6185eF9C759f3 will update later
+  const { contract} = useContract("0xca17D20f1A3d14c6ea977333CdE6185eF9C759f3");//mumbai-testnet-contract:  0x58BB5f5F83aac48b8ccf5cDAe39c1af5027B2753
 
   const amount = 1;
 
@@ -44,7 +44,7 @@ const Minting = () => {
 
   // Load the active claim condition
   const { data: activeClaimCondition } = useActiveClaimCondition(contract);
-
+  
   async function mint() {
     // Make sure the user has their wallet connected.
     if (!address) {
@@ -54,7 +54,7 @@ const Minting = () => {
 
     // Make sure the user is on the correct network (same network as your NFT Drop is).
     if (isOnWrongNetwork) {
-      switchNetwork && switchNetwork(ChainId.Mumbai);
+      switchNetwork && switchNetwork(ChainId.Polygon);
       toast.error("Switch Network to Polygon");
       return;
     }
@@ -172,7 +172,7 @@ const Minting = () => {
                         >
                           <label
                             className={styles.BtnWIconsDefault}
-                            onClick={connectWithMetamask}
+                            onClick={connectWithMetamask} 
                           >
                             <img
                               className="absolute left-5 h-[23px] mr-3"

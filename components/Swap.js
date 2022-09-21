@@ -18,8 +18,8 @@ function Swap(){
 const chainId = useChainId();
 const address = useAddress();
 const TOKEN_LIST = "https://gateway.ipfs.io/ipns/tokens.uniswap.org";
-const UNI="0xA6FA4fB5f76172d178d61B04b0ecd319C5d1C0aa";
-const jsonRpcEndpoint = "https://polygon-mumbai.g.alchemy.com/v2/7wb7qVDk3TfD9A1QaZsXdAvnLZ93ZXXf";
+const WETH="0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619";
+const jsonRpcEndpoint = "https://polygon-mainnet.g.alchemy.com/v2/X-Sa4IgzmrFpewM6kMBbb23B578ivp6e";
 const jsonRpcProvider = new providers.JsonRpcProvider(chainId);
 const provider = new ethers.providers.Web3Provider(jsonRpcProvider);
   const [account, setAccount] = useState({
@@ -43,12 +43,12 @@ isWalletConnected();
  return(
 <>  
 
-  <label htmlFor="my-modal-3" className="btn modal-button btn-md btn-circle border-0 bg-transparent" >
+  <label htmlFor="my-modal-3"  title="Swap Token"className="btn modal-button btn-md btn-circle border-0 bg-transparent" >
                   <div className=" relative flex w-auto ">
                     <img
                       src="/assets/swapbutton.png"
                       className="float-left w-12 rounded-full"
-                      alt="Urban Uprise Crew"
+                      alt="Swap Token"
                     />
                   </div>
   </label>
@@ -65,7 +65,7 @@ isWalletConnected();
         hideConnectionUI={true}
         defaultInputTokenAddress="NATIVE"
         defaultInputAmount="1"
-        defaultOutputTokenAddress={UNI}
+        defaultOutputTokenAddress={WETH}
         width="100%"
         darkMode={true}
 
