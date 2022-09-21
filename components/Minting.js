@@ -418,6 +418,25 @@ const Minting = () => {
                                 )}
                               </span>
                             </motion.span>
+                            <motion.span
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ delay: 1.75 }}
+                            >
+                              <span className="block m-auto w-fit bg-slate-300/10  text-xs font-bold  px-3 py-2 rounded text-green-400">
+                                {activeClaimCondition ? (
+                                  <h1 className="text-center p-3 text-xs font-bold uppercase text-KeenLight-70 tracking-widest text-LightGreen-100">
+                                    <b>
+                                      {activeClaimCondition?.currencyMetadata.displayValue }
+                                    </b>
+                                    <span className="text-center p-3 text-xs font-bold uppercase text-KeenLight-70 tracking-widest text-LightGreen-100">{activeClaimCondition?.currencyMetadata.symbol}</span>
+                                  </h1>
+                                ) : (
+                                  <p>Loading...</p>
+                                )}
+                              </span>
+                            </motion.span>
                           </>
                         ) : (
                           <>
