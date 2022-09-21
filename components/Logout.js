@@ -12,7 +12,7 @@ function Hero() {
     <>
       {address ? (
         <>
-          <div className="flow-root max-w-[168px]  rounded-md border-2  border-slate-800 ">
+          <div className="flow-root max-w-[168px]  rounded-md border-2  border-[#262627] ">
             <a
               onClick={disconnectWallet}
               className="flex items-center py-2 px-3  hover:bg-gray-100 text-white"

@@ -30,7 +30,7 @@ const Minting = () => {
   const connectWithWalletConnect = useWalletConnect();
   const connectWithCoinbaseWallet = useCoinbaseWallet();
   const isOnWrongNetwork = useNetworkMismatch();
-  const [ ,switchNetwork ] = useNetwork();
+  const [, switchNetwork]= useNetwork();
 
   const address = useAddress();
   const { contract} = useContract("0xca17D20f1A3d14c6ea977333CdE6185eF9C759f3");
@@ -44,7 +44,7 @@ const Minting = () => {
 
   // Load the active claim condition
   const { data: activeClaimCondition } = useActiveClaimCondition(contract);
-
+  
   async function mint() {
     // Make sure the user has their wallet connected.
     if (!address) {
@@ -172,7 +172,7 @@ const Minting = () => {
                         >
                           <label
                             className={styles.BtnWIconsDefault}
-                            onClick={connectWithMetamask}
+                            onClick={connectWithMetamask} 
                           >
                             <img
                               className="absolute left-5 h-[23px] mr-3"
@@ -252,7 +252,7 @@ const Minting = () => {
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.3, duration: 0.22 }}
               >
-                <div className=" mt-8 md:mt-1.5 relative  max-w-fit m-auto z-50">
+                <div className=" mx-auto md:mt-1.5 relative  max-w-fit m-auto z-50">
                   {isLoading ? (
                     <>
                       <div className="text-center rounded-xl z-50 bg-black/90 w-full h-full absolute left-0 right-0 top-0 bottom-0 m-auto">
