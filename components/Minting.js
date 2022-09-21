@@ -464,7 +464,7 @@ const Minting = () => {
                                 {isLoading ? (
                                   <>Minting...</>
                                 ) : (
-                                  <span>Mint</span>
+                                  <span>Mint ({activeClaimCondition?.currencyMetadata.displayValue} {activeClaimCondition?.currencyMetadata.symbol})</span>
                                 )}
                               </motion.button>
                             </>
