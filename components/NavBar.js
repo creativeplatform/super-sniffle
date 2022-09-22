@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Logout from "./Logout";
-import Swap from "./Swap";
+//import Swap from "./Swap";
 import { useAddress,ConnectWallet } from "@thirdweb-dev/react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
@@ -10,7 +10,7 @@ function NavBar() {
   const styles = {
     headerLink: `text-base font-medium text-white hover:text-KeenIcyBlue-80 mr-4`,
   };
-//const Swap = dynamic( () => {return import("./Swap");},{ ssr: false });
+const Swap = dynamic( () => {return import("./Swap");},{ ssr: false });
 
   return (
     <>

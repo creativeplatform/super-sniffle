@@ -61,7 +61,17 @@ const Minting = () => {
      parseInt(activeClaimCondition?.availableSupply) === 0;
  
      // Check if there's any NFTs left
-     const isSoldOut = unclaimedSupply?.toNumber() === 0;
+     const isSoldOut = unclaimedSupply?.toNumber() === 0;   
+
+   // The amount the user claims
+  const [quantity, setQuantity] = useState(1); // default to 1
+
+  const price = (
+    activeClaimCondition?.currencyMetadata.displayValue || "0",
+  );
+  
+  const priceToMint = price*(quantity);
+    
   
   async function mint() {
     // Make sure the user has their wallet connected.
@@ -81,7 +91,7 @@ const Minting = () => {
     try {
       claimNft(
         {
-          quantity: amount,
+          quantity: quantity,
           to: address,
         },
         {
@@ -102,8 +112,7 @@ const Minting = () => {
       toast.error("Something went wrong", { id: tid });
     }
   }
-  // The amount the user claims
-  const [quantity, setQuantity] = useState(1); // default to 1
+
   const [revealState, setRevealState] = useState(false);
   async function revealMint() {
     console.log("Reveal Click >> Do something else");
@@ -406,15 +415,18 @@ const Minting = () => {
                         transition={{ delay: 1.45 }}
                         className="text-center bg-gray-900 max-w-full "
                       >
+
                         {revealState == false ? (
                           <>
+                        <div className="grid grid-cols-2">
+                          <div className="mx-auto my-auto">
                             <motion.span
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
                               exit={{ opacity: 0 }}
                               transition={{ delay: 1.55 }}
                             >
-                              <h3 className="text-center p-3 text-xs font-bold uppercase text-KeenLight-70 tracking-widest text-LightGreen-100">
+                              <h3 className="text-center p-2 text-xs font-bold uppercase text-KeenLight-70 tracking-widest text-LightGreen-100">
                                 Total Minted
                               </h3>
                             </motion.span>
@@ -438,13 +450,15 @@ const Minting = () => {
                                 )}
                               </span>
                             </motion.span>
+                            </div>
+                            <div className="mx-auto my-auto">
                             <motion.span
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
                               exit={{ opacity: 0 }}
                               transition={{ delay: 1.55 }}
                             >
-                              <h3 className="text-center p-3 text-xs font-bold uppercase text-KeenLight-70 tracking-widest text-LightGreen-100">
+                              <h3 className="text-center p-2 text-xs font-bold uppercase text-KeenLight-70 tracking-widest text-LightGreen-100">
                                 Max num per wallet
                               </h3>
                             </motion.span>
@@ -466,37 +480,51 @@ const Minting = () => {
                                 )}
                               </span>
                             </motion.span>
+                            </div>  
+                        </div>
+
+                        <div className="grid grid-cols-2">  
+
+                          <div className="mx-auto my-auto">
                             <motion.span
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
                               exit={{ opacity: 0 }}
                               transition={{ delay: 1.55 }}
                             >
-                              <h4 className="text-center p-3 text-xs font-bold uppercase text-KeenLight-70 tracking-widest text-LightGreen-100">
+                              <h4 className="text-center text-md font-bold uppercase text-KeenLight-70 tracking-widest text-LightGreen-100">
                                 Quantity
                               </h4>
                             </motion.span>
+                            </div>
+
+                            <div className="mx-auto my-auto">
                             <motion.span
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
                               exit={{ opacity: 0 }}
                               transition={{ delay: 1.75 }}
                             >
-                              <span className="block m-auto w-fit bg-slate-300/10 text-md font-bold px-3 py-2 rounded text-green-400">
+                              <span className="block mx-auto my-2 w-fit bg-transparent text-md font-bold  rounded text-green-400">
                                 {activeClaimCondition ? (
-                                  <div className={styles.quantityContainer}>
+                                  <div className="grid grid-cols-3 gap-3 mx-auto my-auto">
+
+                                  <div className="ml-3">
                                   <button
-                                    className={`${styles.quantityControlButton}`}
                                     onClick={() => setQuantity(quantity - 1)}
                                     disabled={quantity <= 1}
+                                    className="btn btn-circle btn-sm  mx-auto border-white"
                                   >
                                     -
                                   </button>
-                
+                                  </div>
+
+                                  <div className="mx-auto my-auto text-xl">
                                   <h4>{quantity}</h4>
-                
+                                  </div>
+
+                                  <div className="mr-3">
                                   <button
-                                    className={`${styles.quantityControlButton}`}
                                     onClick={() => setQuantity(quantity + 1)}
                                     disabled={
                                       quantity >=
@@ -504,15 +532,20 @@ const Minting = () => {
                                         activeClaimCondition?.quantityLimitPerTransaction || "0"
                                       )
                                     }
+                                    className="btn btn-circle btn-sm mx-auto border-white"
                                   >
                                     +
                                   </button>
+                                  </div>
+
                                 </div>
                                 ) : (
                                   <p>Loading...</p>
                                 )}
                               </span>
                             </motion.span>
+                            </div>
+                        </div>
                           </>
                         ) : (
                           <>
@@ -559,7 +592,7 @@ const Minting = () => {
                                 {isLoading ? (
                                   <>Minting...</>
                                 ) : (
-                                  <span>Mint ({activeClaimCondition?.currencyMetadata.displayValue || "0"} {activeClaimCondition?.currencyMetadata.symbol})</span>
+                                  <span>Mint ({priceToMint} {activeClaimCondition?.currencyMetadata.symbol})</span>
                                 )}
                               </motion.button>
                             </>
