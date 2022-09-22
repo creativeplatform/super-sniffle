@@ -378,7 +378,7 @@ const Minting = () => {
                             transition={{ delay: 1.35 }}
                           >
                             <img
-                              className="object-scale-down pb-2 w-full max-h-80   "
+                              className="object-scale-down pb-2 w-full max-h-72 "
                               src="/assets/UUCmint.gif"
                               alt="UUC Animation" 
                             />
@@ -513,7 +513,7 @@ const Minting = () => {
                                   <button
                                     onClick={() => setQuantity(quantity - 1)}
                                     disabled={quantity <= 1}
-                                    className="btn btn-circle btn-sm  mx-auto border-white"
+                                    className="btn btn-circle btn-sm  mx-auto border-white dark:border-white"
                                   >
                                     -
                                   </button>
@@ -532,7 +532,7 @@ const Minting = () => {
                                         activeClaimCondition?.quantityLimitPerTransaction || "0"
                                       )
                                     }
-                                    className="btn btn-circle btn-sm mx-auto border-white"
+                                    className="btn btn-circle btn-sm mx-auto border-white dark:border-white"
                                   >
                                     +
                                   </button>
