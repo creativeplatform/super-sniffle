@@ -431,7 +431,7 @@ const Minting = () => {
                                       {activeClaimCondition.currentMintSupply}
                                     </b>
                                     {" / "}
-                                    {activeClaimCondition.availableSupply}
+                                    {activeClaimCondition.maxQuantity}
                                   </p>
                                 ) : (
                                   <p>Loading...</p>
