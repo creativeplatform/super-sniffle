@@ -513,7 +513,7 @@ const Minting = () => {
                                   <button
                                     onClick={() => setQuantity(quantity - 1)}
                                     disabled={quantity <= 1}
-                                    className="btn btn-circle btn-sm  mx-auto border-white dark:border-white"
+                                    className="btn btn-circle btn-sm mx-auto border-white dark:border-white hover:border-white"
                                   >
                                     -
                                   </button>
@@ -532,7 +532,7 @@ const Minting = () => {
                                         activeClaimCondition?.quantityLimitPerTransaction || "0"
                                       )
                                     }
-                                    className="btn btn-circle btn-sm mx-auto border-white dark:border-white"
+                                    className="btn btn-circle btn-sm mx-auto border-white dark:border-white hover:border-white"
                                   >
                                     +
                                   </button>
