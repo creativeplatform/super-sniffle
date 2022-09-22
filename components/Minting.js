@@ -2,6 +2,7 @@ import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import toast, { Toaster } from "react-hot-toast";
 import { useReward } from "react-rewards";
 import { BigNumber } from "ethers";
+import { formatUnits, parseUnits } from "ethers/lib/utils";
 import {
   ChainId,
   useMetamask,
@@ -16,6 +17,8 @@ import {
   useNetwork,
   useActiveClaimCondition,
   useContract,
+  useUnclaimedNFTSupply,
+  useClaimedNFTSupply
 } from "@thirdweb-dev/react";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -42,8 +45,23 @@ const Minting = () => {
   const { reward: confettiReward, isAnimating: isConfettiAnimating } =
     useReward("confettiReward", "confetti"); //for confetti celebration animation on successfully miniting
 
+    // Load contract metadata
+    const { data: contractMetadata } = useContractMetadata(contract);
+
+    // Load claimed supply and unclaimed supply
+    const { data: unclaimedSupply } = useUnclaimedNFTSupply(contract);
+    const { data: claimedSupply } = useClaimedNFTSupply(contract);
+
   // Load the active claim condition
   const { data: activeClaimCondition } = useActiveClaimCondition(contract);
+
+     // Check if there's NFTs left on the active claim phase
+     const isNotReady =
+     activeClaimCondition &&
+     parseInt(activeClaimCondition?.availableSupply) === 0;
+ 
+     // Check if there's any NFTs left
+     const isSoldOut = unclaimedSupply?.toNumber() === 0;
   
   async function mint() {
     // Make sure the user has their wallet connected.
@@ -84,6 +102,8 @@ const Minting = () => {
       toast.error("Something went wrong", { id: tid });
     }
   }
+  // The amount the user claims
+  const [quantity, setQuantity] = useState(1); // default to 1
   const [revealState, setRevealState] = useState(false);
   async function revealMint() {
     console.log("Reveal Click >> Do something else");
@@ -418,6 +438,81 @@ const Minting = () => {
                                 )}
                               </span>
                             </motion.span>
+                            <motion.span
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ delay: 1.55 }}
+                            >
+                              <h3 className="text-center p-3 text-xs font-bold uppercase text-KeenLight-70 tracking-widest text-LightGreen-100">
+                                Max num per wallet
+                              </h3>
+                            </motion.span>
+                            <motion.span
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ delay: 1.75 }}
+                            >
+                              <span className="block m-auto w-fit bg-slate-300/10 text-xs font-bold  px-3 py-2 rounded text-green-400">
+                                {activeClaimCondition ? (
+                                  <p>
+                                    <b>
+                                      {activeClaimCondition.quantityLimitPerTransaction}
+                                    </b>
+                                  </p>
+                                ) : (
+                                  <p>Loading...</p>
+                                )}
+                              </span>
+                            </motion.span>
+                            <motion.span
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ delay: 1.55 }}
+                            >
+                              <h4 className="text-center p-3 text-xs font-bold uppercase text-KeenLight-70 tracking-widest text-LightGreen-100">
+                                Quantity
+                              </h4>
+                            </motion.span>
+                            <motion.span
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ delay: 1.75 }}
+                            >
+                              <span className="block m-auto w-fit bg-slate-300/10 text-md font-bold px-3 py-2 rounded text-green-400">
+                                {activeClaimCondition ? (
+                                  <div className={styles.quantityContainer}>
+                                  <button
+                                    className={`${styles.quantityControlButton}`}
+                                    onClick={() => setQuantity(quantity - 1)}
+                                    disabled={quantity <= 1}
+                                  >
+                                    -
+                                  </button>
+                
+                                  <h4>{quantity}</h4>
+                
+                                  <button
+                                    className={`${styles.quantityControlButton}`}
+                                    onClick={() => setQuantity(quantity + 1)}
+                                    disabled={
+                                      quantity >=
+                                      parseInt(
+                                        activeClaimCondition?.quantityLimitPerTransaction || "0"
+                                      )
+                                    }
+                                  >
+                                    +
+                                  </button>
+                                </div>
+                                ) : (
+                                  <p>Loading...</p>
+                                )}
+                              </span>
+                            </motion.span>
                           </>
                         ) : (
                           <>
@@ -464,7 +559,7 @@ const Minting = () => {
                                 {isLoading ? (
                                   <>Minting...</>
                                 ) : (
-                                  <span>Mint ({activeClaimCondition?.currencyMetadata.displayValue} {activeClaimCondition?.currencyMetadata.symbol})</span>
+                                  <span>Mint ({activeClaimCondition?.currencyMetadata.displayValue || "0"} {activeClaimCondition?.currencyMetadata.symbol})</span>
                                 )}
                               </motion.button>
                             </>
