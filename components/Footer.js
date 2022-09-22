@@ -69,10 +69,10 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://discord.gg/T7zPK57cMX"
+                    href="https://opensea.io/collection/urbanuprisecrew"
                     className="hover:underline after:content-['_↗'] ..."
                   >
-                    Discord
+                    OpenSea
                   </a>
                 </li>
               </ul>
