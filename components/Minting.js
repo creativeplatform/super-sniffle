@@ -259,6 +259,7 @@ const Minting = () => {
                     }}
                   >
                     <CrossmintPayButton
+                      disabled={"disabled"}
                       className={styles.UCCBtnDefaults}
                       clientId="cfea4aa9-ca57-4f37-b36b-f4d80c7b55db"
                       mintConfig={{"type":"thirdweb-drop","totalPrice":"50","quantity":"5"}}
