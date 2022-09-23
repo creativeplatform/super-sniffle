@@ -63,9 +63,7 @@ isWalletConnected();
         tokenList={TOKEN_LIST}
         provider={account.provider}
         hideConnectionUI={true}
-        defaultInputTokenAddress="NATIVE"
-        defaultInputAmount="1"
-        defaultOutputTokenAddress={WETH}
+        defaultOutputTokenAddress="NATIVE"
         width="100%"
         darkMode={true}
 
