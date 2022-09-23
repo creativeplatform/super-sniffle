@@ -67,8 +67,7 @@ const Minting = () => {
   const [quantity, setQuantity] = useState(1); // default to 1
 
   const price = (
-    activeClaimCondition?.currencyMetadata.displayValue || "0",
-    activeClaimCondition?.currencyMetadata.decimals
+    activeClaimCondition?.currencyMetadata.displayValue || "0"
   );
   
   const priceToMint = price*(quantity);
