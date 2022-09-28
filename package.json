@@ -17,6 +17,8 @@
     "@thirdweb-dev/react": "^3.0.2",
     "@thirdweb-dev/sdk": "^3.0.2",
     "@uniswap/widgets": "^2.8.1",
+    "@wert-io/module-react-component": "^0.2.0",
+    "@wert-io/widget-sc-signer": "^1.0.0",
     "daisyui": "^2.22.0",
     "dotenv": "^16.0.1",
     "ethers": "^5.7.1",
