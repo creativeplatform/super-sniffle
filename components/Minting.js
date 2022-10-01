@@ -260,7 +260,6 @@ const Minting = () => {
                   >
                     <CrossmintPayButton
                       className={styles.UCCBtnDefaults}
-                      disabled='disabled'
                       clientId="2be0fc59-f560-43ca-8be8-960a46a7dbf1"
                       mintConfig={{"type":"erc-721","totalPrice":"50","_quantity":"1","_currency":"0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE","_pricePerToken":"50000000000000000000", "_allowlistProof":{ "proof": ["0x0000000000000000000000000000000000000000000000000000000000000000"], "maxQuantityInAllowlist": 0 },"_data":[0x00]}}
                       mintTo="" 
