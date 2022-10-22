@@ -1,15 +1,11 @@
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import toast, { Toaster } from "react-hot-toast";
 import { useReward } from "react-rewards";
-import { BigNumber } from "ethers";
-import { formatUnits, parseUnits } from "ethers/lib/utils";
 import {
   ChainId,
   useMetamask,
   useContractMetadata,
   useAddress,
-  useNFTDrop,
-  useNFT,
   useWalletConnect,
   useCoinbaseWallet,
   useClaimNFT,
@@ -18,7 +14,9 @@ import {
   useActiveClaimCondition,
   useContract,
   useUnclaimedNFTSupply,
-  useClaimedNFTSupply
+  useClaimedNFTSupply,
+  useTotalCirculatingSupply,
+  useTotalCount
 } from "@thirdweb-dev/react";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -47,6 +45,13 @@ const Minting = () => {
 
     // Load contract metadata
     const { data: contractMetadata } = useContractMetadata(contract);
+   
+    //To get the total count of NFT tokens of your contract ~9986 in our case
+    const { data: count } = useTotalCount(contract);
+
+    //To get a total (minted) supply of your contract ~ 44 as of now in our case
+    const { data: totalCirculatingSupply,} = useTotalCirculatingSupply(contract);
+    
 
     // Load claimed supply and unclaimed supply
     const { data: unclaimedSupply } = useUnclaimedNFTSupply(contract);
@@ -441,10 +446,10 @@ const Minting = () => {
                                 {activeClaimCondition ? (
                                   <p>
                                     <b>
-                                      {activeClaimCondition.currentMintSupply}
+                                      {totalCirculatingSupply?.toNumber()}
                                     </b>
                                     {" / "}
-                                    {activeClaimCondition.maxQuantity}
+                                    {count}
                                   </p>
                                 ) : (
                                   <p>Loading...</p>

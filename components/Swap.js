@@ -1,11 +1,8 @@
-import { darkMode,darkTheme, lightTheme, Theme,SwapWidget } from '@uniswap/widgets'
+import { darkTheme, SwapWidget } from '@uniswap/widgets'
 import '@uniswap/widgets/fonts.css'
 import {
-  useChainId ,
-  ChainId,
-  useMetamask,
+  useChainId,
   useAddress,
-  useNetwork,
 } from "@thirdweb-dev/react";
 import { providers, ethers } from 'ethers';
 import { useState } from "react";
@@ -18,7 +15,7 @@ function Swap(){
 const chainId = useChainId();
 const address = useAddress();
 const TOKEN_LIST = "https://gateway.ipfs.io/ipns/tokens.uniswap.org";
-const WETH="0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619";
+//const WETH="0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619";
 const jsonRpcEndpoint = `https://polygon-mainnet.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_POLYGON_ALCHEMY}`;
 const jsonRpcProvider = new providers.JsonRpcProvider(chainId);
 const provider = new ethers.providers.Web3Provider(jsonRpcProvider);
