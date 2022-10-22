@@ -1,12 +1,11 @@
 import '../styles/globals.css'
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react"
 
-const activeChainId = ChainId.Polygon;
-
 function MyApp({ Component, pageProps }) {
   return(
-    <ThirdwebProvider 
-    desiredChainId={activeChainId}
+    <ThirdwebProvider
+    chainRpc={{ [ChainId.Polygon]: `https://polygon-mainnet.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_POLYGON_ALCHEMY}` }} 
+    desiredChainId={ChainId.Polygon}
     dAppMeta={{
       name: "Urban Uprise Crew",
       description: "Join the Revolution, Free Your Creative Soul",
