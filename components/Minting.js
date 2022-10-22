@@ -446,10 +446,10 @@ const Minting = () => {
                                 {activeClaimCondition ? (
                                   <p>
                                     <b>
-                                      {totalCirculatingSupply?.toNumber()}
+                                      {activeClaimCondition.currentMintSupply}
                                     </b>
                                     {" / "}
-                                    {count}
+                                    {activeClaimCondition.availableSupply}
                                   </p>
                                 ) : (
                                   <p>Loading...</p>
