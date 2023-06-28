@@ -20,7 +20,7 @@ function Hero() {
         onMouseLeave={() => setIsShown(false)}
       >
         <img
-          src="https://urbanuprisecrew.com/wp-content/uploads/2022/07/BannerUpdated.png"
+          src="https://bafybeiaaen7gjezwhnrp5sbjbbcbw6iqr2geqfqsdnby6apxmkv3m6bcrq.ipfs.nftstorage.link/"
           className="absolute top-0 left-0 right-0 bottom-0 m-auto w-full cover "
         />
         {isShown ? (
