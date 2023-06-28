@@ -1,11 +1,12 @@
 import '../styles/globals.css'
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react"
+import { Mumbai, Polygon } from "@thirdweb-dev/chains"
 
 function MyApp({ Component, pageProps }) {
   return(
     <ThirdwebProvider
-    chainRpc={{ [ChainId.Polygon]: `https://polygon-mainnet.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_POLYGON_ALCHEMY}` }} 
-    desiredChainId={ChainId.Polygon}
+    activeChain={Polygon}
+    autoConnect={false} 
     dAppMeta={{
       name: "Urban Uprise Crew",
       description: "Join the Revolution, Free Your Creative Soul",
@@ -13,7 +14,7 @@ function MyApp({ Component, pageProps }) {
       logoUrl: "https://bafybeicnyw5sjja4ul6wk7r2pjyxb3se3uxxxo66mxii6zg7szmzwhodka.ipfs.nftstorage.link/",
       url: "https://urbanuprisecrew.com",
     }}
-    supportedChains={[ChainId.Mumbai, ChainId.Polygon]}
+    supportedChains={[Mumbai, Polygon]}
     >
       <Component {...pageProps} />
     </ThirdwebProvider>
