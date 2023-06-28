@@ -5,9 +5,7 @@ import { Mumbai, Polygon } from "@thirdweb-dev/chains"
 function MyApp({ Component, pageProps }) {
   return(
     <ThirdwebProvider
-    activeChain={{ 
-      ...Polygon
-    }}
+    activeChain={Polygon}
     autoConnect={false} 
     dAppMeta={{
       name: "Urban Uprise Crew",
