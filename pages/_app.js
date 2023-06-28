@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
       name: "Urban Uprise Crew",
       description: "Join the Revolution, Free Your Creative Soul",
       isDarkMode: true,
-      logoUrl: "https://urbanuprisecrew.com/wp-content/uploads/2022/02/UUClogoWeb.png",
+      logoUrl: "https://bafybeicnyw5sjja4ul6wk7r2pjyxb3se3uxxxo66mxii6zg7szmzwhodka.ipfs.nftstorage.link/",
       url: "https://urbanuprisecrew.com",
     }}
     supportedChains={[ChainId.Mumbai, ChainId.Polygon]}
